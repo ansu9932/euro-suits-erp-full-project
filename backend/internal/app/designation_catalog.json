@@ -1,0 +1,656 @@
+[
+  {
+    "department": "Administration",
+    "name": "Super Admin",
+    "role": "Super Admin",
+    "permissions": [
+      "view_orders",
+      "companies",
+      "audit"
+    ],
+    "features": [
+      "view",
+      "approve",
+      "documents",
+      "export",
+      "reminders",
+      "ports",
+      "fields",
+      "types",
+      "users"
+    ]
+  },
+  {
+    "department": "Finance & Accounts",
+    "name": "Finance Head",
+    "role": "Finance Head",
+    "permissions": [],
+    "features": [
+      "view",
+      "create",
+      "edit",
+      "submit",
+      "amend",
+      "documents",
+      "export",
+      "reminders",
+      "ports"
+    ]
+  },
+  {
+    "department": "Finance & Accounts",
+    "name": "Accounts Executive",
+    "role": "Finance",
+    "permissions": [
+      "view_orders",
+      "finance",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finance & Accounts",
+    "name": "Logistics Executive",
+    "role": "Finance",
+    "permissions": [
+      "view_orders",
+      "finance",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Top Management",
+    "name": "MD",
+    "role": "MD",
+    "permissions": [
+      "view_orders",
+      "approve",
+      "audit"
+    ],
+    "features": [
+      "view",
+      "approve",
+      "export",
+      "reminders"
+    ]
+  },
+  {
+    "department": "Top Management",
+    "name": "Director",
+    "role": "CEO",
+    "permissions": [
+      "view_orders",
+      "audit"
+    ],
+    "features": []
+  },
+  {
+    "department": "Top Management",
+    "name": "CEO",
+    "role": "CEO",
+    "permissions": [
+      "view_orders",
+      "audit"
+    ],
+    "features": []
+  },
+  {
+    "department": "Top Management",
+    "name": "CEO Assistant",
+    "role": "CEO",
+    "permissions": [
+      "view_orders",
+      "audit"
+    ],
+    "features": []
+  },
+  {
+    "department": "Top Management",
+    "name": "Marketing Vice President",
+    "role": "CEO",
+    "permissions": [
+      "view_orders",
+      "audit"
+    ],
+    "features": []
+  },
+  {
+    "department": "Top Management",
+    "name": "Factory GM",
+    "role": "CEO",
+    "permissions": [
+      "view_orders",
+      "audit"
+    ],
+    "features": []
+  },
+  {
+    "department": "Marketing & Merchandising",
+    "name": "Marketing Manager",
+    "role": "Marketing",
+    "permissions": [
+      "view_orders",
+      "orders",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Marketing & Merchandising",
+    "name": "Senior Merchant",
+    "role": "Marketing",
+    "permissions": [
+      "view_orders",
+      "orders",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Marketing & Merchandising",
+    "name": "Junior Merchant",
+    "role": "Marketing",
+    "permissions": [
+      "view_orders",
+      "orders",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Marketing & Merchandising",
+    "name": "Development Merchant",
+    "role": "Marketing",
+    "permissions": [
+      "view_orders",
+      "orders",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Marketing & Merchandising",
+    "name": "Buyer QA",
+    "role": "Quality",
+    "permissions": [
+      "view_orders",
+      "quality",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Planning & PP",
+    "name": "PPD Manager",
+    "role": "Planning",
+    "permissions": [
+      "view_orders",
+      "plan",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Planning & PP",
+    "name": "Assistant PPD Manager",
+    "role": "Planning",
+    "permissions": [
+      "view_orders",
+      "plan",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Planning & PP",
+    "name": "PPD Executive",
+    "role": "Planning",
+    "permissions": [
+      "view_orders",
+      "plan",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Product Development",
+    "name": "Development Manager",
+    "role": "Development",
+    "permissions": [
+      "view_orders",
+      "develop",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Product Development",
+    "name": "Style Designer",
+    "role": "Development",
+    "permissions": [
+      "view_orders",
+      "develop",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Product Development",
+    "name": "Product Developer",
+    "role": "Development",
+    "permissions": [
+      "view_orders",
+      "develop",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Sourcing",
+    "name": "Fabric Sourcing Manager",
+    "role": "Sourcing",
+    "permissions": [
+      "view_orders",
+      "suppliers",
+      "purchases",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Sourcing",
+    "name": "Senior Fabric Merchant",
+    "role": "Sourcing",
+    "permissions": [
+      "view_orders",
+      "suppliers",
+      "purchases",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Sourcing",
+    "name": "Junior Fabric Merchant",
+    "role": "Sourcing",
+    "permissions": [
+      "view_orders",
+      "suppliers",
+      "purchases",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Sourcing",
+    "name": "Trims Sourcing Manager",
+    "role": "Sourcing",
+    "permissions": [
+      "view_orders",
+      "suppliers",
+      "purchases",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Sourcing",
+    "name": "Trims Merchant",
+    "role": "Sourcing",
+    "permissions": [
+      "view_orders",
+      "suppliers",
+      "purchases",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Sourcing",
+    "name": "Junior Trims Merchant",
+    "role": "Sourcing",
+    "permissions": [
+      "view_orders",
+      "suppliers",
+      "purchases",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sampling",
+    "name": "Sampling Manager",
+    "role": "Sampling",
+    "permissions": [
+      "view_orders",
+      "sample",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sampling",
+    "name": "Sampling Merchant",
+    "role": "Sampling",
+    "permissions": [
+      "view_orders",
+      "sample",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sampling",
+    "name": "Assistant Sampling Merchant",
+    "role": "Sampling",
+    "permissions": [
+      "view_orders",
+      "sample",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sampling",
+    "name": "Sampling QA",
+    "role": "Quality",
+    "permissions": [
+      "view_orders",
+      "quality",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sampling",
+    "name": "Pattern CAD Manager",
+    "role": "Development",
+    "permissions": [
+      "view_orders",
+      "develop",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Cutting Admin Planner",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Cutting Manager",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Marker",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Layer",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Numbering Operator",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Cut Checker",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Cutting",
+    "name": "Bundling Operator",
+    "role": "Cutting",
+    "permissions": [
+      "view_orders",
+      "cut",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Stores",
+    "name": "Fabric Store Manager",
+    "role": "Stores",
+    "permissions": [
+      "view_orders",
+      "inventory",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Stores",
+    "name": "Fabric Store Keeper",
+    "role": "Stores",
+    "permissions": [
+      "view_orders",
+      "inventory",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Stores",
+    "name": "Assistant Fabric Store Keeper",
+    "role": "Stores",
+    "permissions": [
+      "view_orders",
+      "inventory",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Fabric Stores",
+    "name": "Fabric QA",
+    "role": "Quality",
+    "permissions": [
+      "view_orders",
+      "quality",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Stores",
+    "name": "Trims Store Manager",
+    "role": "Stores",
+    "permissions": [
+      "view_orders",
+      "inventory",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Stores",
+    "name": "Trims Store Keeper",
+    "role": "Stores",
+    "permissions": [
+      "view_orders",
+      "inventory",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Stores",
+    "name": "Assistant Trims Store Keeper",
+    "role": "Stores",
+    "permissions": [
+      "view_orders",
+      "inventory",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Trims Stores",
+    "name": "Trims QA",
+    "role": "Quality",
+    "permissions": [
+      "view_orders",
+      "quality",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sewing",
+    "name": "Production Manager",
+    "role": "Production",
+    "permissions": [
+      "view_orders",
+      "sew",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Sewing",
+    "name": "Sewing Line Supervisor",
+    "role": "Production",
+    "permissions": [
+      "view_orders",
+      "sew",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finishing",
+    "name": "Finishing Manager",
+    "role": "Finishing",
+    "permissions": [
+      "view_orders",
+      "finish",
+      "pack",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finishing",
+    "name": "Checking Operator",
+    "role": "Finishing",
+    "permissions": [
+      "view_orders",
+      "finish",
+      "pack",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finishing",
+    "name": "Pressing Operator",
+    "role": "Finishing",
+    "permissions": [
+      "view_orders",
+      "finish",
+      "pack",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finishing",
+    "name": "Barcoding Executive",
+    "role": "Finishing",
+    "permissions": [
+      "view_orders",
+      "finish",
+      "pack",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finishing",
+    "name": "Packing Executive",
+    "role": "Finishing",
+    "permissions": [
+      "view_orders",
+      "finish",
+      "pack",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Finishing",
+    "name": "Finishing QA",
+    "role": "Quality",
+    "permissions": [
+      "view_orders",
+      "quality",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Warehouse",
+    "name": "Warehouse Manager",
+    "role": "Warehouse",
+    "permissions": [
+      "view_orders",
+      "warehouse",
+      "documents"
+    ],
+    "features": []
+  },
+  {
+    "department": "Warehouse",
+    "name": "Warehouse Executive",
+    "role": "Warehouse",
+    "permissions": [
+      "view_orders",
+      "warehouse",
+      "documents"
+    ],
+    "features": []
+  }
+]

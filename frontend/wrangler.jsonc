@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "euro-suits-erp-example",
+  "pages_build_output_dir": ".svelte-kit/cloudflare",
+  "compatibility_date": "2026-10-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "ERP_BACKEND_ORIGIN": "https://api.example.com",
+    "ERP_PUBLIC_ORIGIN": "https://erp.example.com"
+  }
+}

@@ -1,0 +1,2 @@
+<script lang="ts">import DeveloperWorkspace from '$lib/DeveloperWorkspace.svelte';import CompanyWorkspace from '$lib/CompanyWorkspace.svelte';import OperationsWorkspace from '$lib/OperationsWorkspace.svelte';let {data}=$props();</script>
+{#if data.portal==='developer'}<DeveloperWorkspace/>{:else if ['admin','md','finance'].includes(data.portal)&&data.area!=='operations'}<CompanyWorkspace portal={data.portal} area={data.area}/>{:else}<OperationsWorkspace portal={data.portal}/>{/if}

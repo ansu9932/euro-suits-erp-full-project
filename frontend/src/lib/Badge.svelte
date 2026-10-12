@@ -1,0 +1,2 @@
+<script lang="ts">let {value}:{value:string}=$props();const green=['Approved','Pass','Dispatched','Received'];const amber=['Pending','Hold','Rework','Changes needed'];const blue=['Sewing','Finishing','In progress','Invoiced'];</script>
+<span class="badge" class:green={green.includes(value)} class:amber={amber.includes(value)} class:blue={blue.includes(value)} class:red={value==='Rejected'}>{value||'Unassigned'}</span>

@@ -1,0 +1,16 @@
+# Use with compose.yaml and a NEW .env.production / fresh production volumes.
+services:
+  api:
+    environment:
+      APP_ENV: production
+      DEMO_SEED: 'false'
+      APP_ORIGIN: ${APP_ORIGIN:?Set the public HTTPS origin}
+      OWNER_PASSWORD: ''
+  nginx:
+    environment:
+      PUBLIC_HOST: ${PUBLIC_HOST:?Set the domain hostname without scheme}
+      NGINX_ENVSUBST_FILTER: PUBLIC_HOST
+    ports: !override ['80:80', '443:443']
+    volumes: !override
+      - ./deploy/nginx.production.conf:/etc/nginx/templates/default.conf.template:ro
+      - ./certs:/etc/nginx/certs:ro

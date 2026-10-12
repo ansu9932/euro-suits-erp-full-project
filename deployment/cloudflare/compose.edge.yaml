@@ -1,0 +1,5 @@
+services:
+  nginx:
+    volumes:
+      - ./deploy/nginx.origin.conf:/etc/nginx/conf.d/origin.conf:ro
+      - ./acme:/var/www/certbot:ro

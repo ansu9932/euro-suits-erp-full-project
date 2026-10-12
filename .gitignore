@@ -1,0 +1,44 @@
+# Secrets and local credentials (review examples before publishing)
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+*.env
+!**/*.env.example
+.dev.vars
+.dev.vars.*
+LOCAL-ACCESS.txt
+**/private/
+**/certs/
+*.pem
+*.key
+*.p12
+*.pfx
+# Dependencies, generated output and runtime files
+node_modules/
+.svelte-kit/
+.wrangler/
+build/
+dist/
+backend/erp-server
+backend/files/
+backups/
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+.claude/
+.impeccable/
+# Operational evidence and imported business records are private
+evidence/
+email-previews/
+*.xlsx
+*.xls
+*.csv
+*.eml
+*.m4a

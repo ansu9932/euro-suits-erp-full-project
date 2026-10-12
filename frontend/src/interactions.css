@@ -1,0 +1,39 @@
+/* Original office UI styling inspired by Uiverse's control-state examples.
+   Native inputs retain keyboard, high contrast and assistive-technology support. */
+:root { --motion-fast: 160ms; --focus-ring: #087d78; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button[data-action-locked], a.button[data-action-locked], input[data-action-locked], [role=button][data-action-locked] { cursor:wait; opacity:.65; }
+.button, .icon-button, .filter-tabs button, .section-nav button, .company-sidebar nav button {
+ transition: background-color var(--motion-fast), border-color var(--motion-fast), color var(--motion-fast), box-shadow var(--motion-fast);
+}
+.button:not(:disabled):active { transform: translateY(1px); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+ outline: 3px solid var(--focus-ring); outline-offset: 3px;
+}
+input:not([type=checkbox]):not([type=radio]):focus, select:focus, textarea:focus {
+ border-color: var(--focus-ring); box-shadow: 0 0 0 3px #087d7814;
+}
+input[type=checkbox], input[type=radio] { accent-color: #087d78; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+.checkbox-option, .check-option, .feature-option, .access-checkboxes .inline-check { transition: border-color var(--motion-fast), background-color var(--motion-fast); }
+.checkbox-option:has(input:checked), .check-option:has(input:checked), .feature-option:has(input:checked), .access-checkboxes .inline-check:has(input:checked) { background: #eef8f6; border-color: #64a9a1; }
+.password-control { display: block; position: relative; }
+.password-control input { width:100%; padding-right:52px; }
+.password-toggle { position:absolute; top:0; right:0; height:100%; width:44px; display:grid; place-items:center; background:transparent; border:0; border-radius:8px; color:#516474; cursor:pointer; }
+.password-toggle:hover { color:#087d78; background:#087d780a; }
+.login-verification:empty { display:none; }
+.verification-status { color:#516474; font-size:13px; margin:0; }
+.loading-screen::after { content:''; display:block; width:120px; height:3px; border-radius:3px; background:linear-gradient(90deg,#dae5e7 25%,#07827d 50%,#dae5e7 75%); background-size:200% 100%; animation:workspace-loading 1.2s ease-in-out infinite; }
+@keyframes workspace-loading { to {background-position:-200% 0;} }
+@media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+ .button:not(:disabled):active { transform:none; }
+ .loading-screen::after { background:#087d78; }
+}
+@media (max-width: 600px) {
+ .password-control input, .login-form-wrap input { font-size:16px; }
+ .login-form-wrap { min-width:0; }
+}
+
+.company-register-toolbar .filter-tabs { flex-shrink:0; flex-wrap:nowrap; max-width:100%; overflow-x:auto; }
+.company-register-toolbar .filter-tabs button { flex-shrink:0; white-space:nowrap; }
+.company-register-toolbar .search-box { min-width:0; }

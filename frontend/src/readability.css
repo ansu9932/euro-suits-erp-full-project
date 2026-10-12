@@ -1,0 +1,97 @@
+/* Shared screen readability for office users; printed labels retain their dimensions. */
+@media screen {
+ :root {font-size:16px !important;--muted:#506174;--text:#203246}
+ body {font-weight:600;line-height:1.55}
+ body :is(label,legend,th) {font-size:16px !important;font-weight:700 !important;line-height:1.5 !important}
+ body :is(input,select,textarea) {font-size:16px !important;font-weight:600 !important;line-height:1.5 !important}
+ body :is(input,select,textarea)::placeholder {color:#596b7d;opacity:1;font-weight:500}
+ body :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]),select) {min-height:44px}
+ body :is(p,td,li,dd,dt) {font-size:16px !important;font-weight:600 !important;line-height:1.55}
+ body :is(small,.muted,.eyebrow,.material-helper) {font-size:14px !important;font-weight:600 !important;line-height:1.5 !important}
+ body :is(.muted,.material-helper) {color:#506174 !important}
+ body :is(button,.button) {font-size:15px !important;font-weight:700 !important;line-height:1.4;white-space:normal}
+ body :is(.button,.text-button,.nav-group button) {min-height:44px}
+ body :is(h2,.panel-header h2) {font-size:21px !important;font-weight:800 !important;line-height:1.35}
+ body h3 {font-size:18px !important;font-weight:800 !important;line-height:1.4}
+ body strong {font-weight:700}
+ .sidebar :is(small,.nav-group>p,.workspace-label small,.profile-button small) {color:#bac9d8 !important}
+ .sidebar .nav-group button {color:#d3deea;font-size:16px !important}
+ .sidebar :is(.profile-button strong,.workspace-label strong) {font-size:15px;font-weight:700}
+ .material-modal label {color:#263d50}
+ .material-modal .company-form-grid {row-gap:24px}
+ .material-dialog footer .button {overflow-wrap:anywhere;min-width:0}
+}
+
+/* Soft field surfaces distinguish editable controls from the white page. */
+@media screen {
+ body :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=range]):not([type=color]):not([type=submit]):not([type=button]),select,textarea) {
+  background-color:#eef5fa !important;
+  color:#203246 !important;
+  border:1px solid #a8bdce !important;
+  border-radius:7px;
+ }
+ body :is(input,select,textarea):focus-visible {
+  background-color:#e8f5f1 !important;
+  border-color:#087f7c !important;
+  outline:3px solid #087f7c !important;
+  outline-offset:2px;
+ }
+ body :is(input,select,textarea):is(:disabled,[readonly]) {
+  background-color:#e9edf1 !important;
+  border-color:#bdc7d1 !important;
+  color:#526170 !important;
+ }
+ body :is(input,select,textarea)[aria-invalid=true] {
+  background-color:#fff1f0 !important;
+  border-color:#b63e42 !important;
+ }
+ body :is(input[type=checkbox],input[type=radio]) {accent-color:#087f7c}
+}
+
+@media screen {
+ body :is(label,legend) {color:#152536 !important}
+ body :is(input,select,textarea) {color:#101e2c !important}
+ body :is(input,textarea)::placeholder {color:#3b4b5c !important;opacity:1}
+ body :is(input,select,textarea):is(:disabled,[readonly]) {color:#354455 !important}
+ body .sidebar :is(label,legend) {color:#edf3fa !important}
+}
+
+/* Compact, high-contrast ETF/ESF registration surface. */
+@media screen {
+ body .material-dialog .material-modal-body {background:#eaf2ee}
+ body .material-dialog :is(label,legend,input,select,textarea,p,td,li) {font-size:14px !important}
+ body .material-dialog :is(small,.muted,.eyebrow,.material-helper) {font-size:12px !important}
+ body .material-dialog :is(button,.button) {font-size:13px !important}
+ body .material-dialog h2 {font-size:19px !important}
+ body .material-dialog h3 {font-size:16px !important}
+ body .material-dialog :is(label,legend) {color:#152536 !important}
+}
+
+/* Keep the form action visible throughout long forms. */
+@media screen {
+ body .dialog-header {position:sticky;top:0;z-index:6;background:#eaf2ee;border-bottom:1px solid #bccdc5;padding:14px 24px}
+ body .dialog-header h2, body .material-modal header h2 {font-size:18px !important;margin:0}
+ body .material-modal header {position:sticky;top:0;z-index:6;background:#eaf2ee;padding:14px 24px}
+ body .material-modal header .eyebrow {display:none}
+}
+@media screen {
+ body .company-modal>header {position:sticky;top:0;z-index:6;background:#eaf2ee;padding:14px 24px;border-bottom:1px solid #bccdc5}
+ body .company-modal>header h2 {font-size:18px !important;margin:0}
+ body .company-modal>header .eyebrow {display:none}
+}
+
+/* Shared navy form title band. */
+@media screen {
+ body :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) {
+  background:#172b3e !important;
+  color:#ffffff !important;
+  border-bottom:2px solid #304c64 !important;
+  box-shadow:0 3px 10px #10223526;
+ }
+ body :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) :is(h2,h3,p,strong,small,span) {color:#ffffff !important}
+ body :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) button {
+  background:#263e54 !important;color:#ffffff !important;border:1px solid #587087 !important;
+ }
+ body :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) button:hover {background:#35536d !important}
+ body :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) button:focus-visible {outline:3px solid #ffffff !important;outline-offset:3px}
+}

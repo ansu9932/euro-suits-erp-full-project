@@ -1,0 +1,326 @@
+[
+  {
+    "key": "received_on",
+    "label": "Swatch received date",
+    "section": "Specifications",
+    "type": "date",
+    "required": true
+  },
+  {
+    "key": "swatch_type",
+    "label": "Swatch type",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "swatch_type"
+  },
+  {
+    "key": "article",
+    "label": "Supplier article number",
+    "section": "Specifications",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "old_etf",
+    "label": "Old ETF",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "legacy_reference",
+    "label": "Legacy reference",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "product",
+    "label": "Product type",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "product"
+  },
+  {
+    "key": "season",
+    "label": "Season",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "season"
+  },
+  {
+    "key": "category",
+    "label": "Category",
+    "section": "Specifications",
+    "type": "option",
+    "required": true,
+    "options": "category"
+  },
+  {
+    "key": "weave",
+    "label": "Weave / subcategory",
+    "section": "Specifications",
+    "type": "option",
+    "required": true,
+    "options": "weave"
+  },
+  {
+    "key": "sub_item",
+    "label": "Sub-item",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "sub_item"
+  },
+  {
+    "key": "composition",
+    "label": "Composition",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "composition"
+  },
+  {
+    "key": "color",
+    "label": "Colour",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "color"
+  },
+  {
+    "key": "construction",
+    "label": "Construction",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "yarn_count",
+    "label": "Yarn count (legacy: yard count)",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "density",
+    "label": "Density",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "pantone_ref",
+    "label": "Pantone reference",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "development_ref",
+    "label": "Development reference",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "counter_ref",
+    "label": "Counter reference",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "finishing_ref",
+    "label": "Finishing reference",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "finish_type",
+    "label": "Finish type",
+    "section": "Specifications",
+    "type": "option",
+    "required": false,
+    "options": "finish_type"
+  },
+  {
+    "key": "location",
+    "label": "Showroom / rack location",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "country_of_origin",
+    "label": "Country of origin",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "sea_port",
+    "label": "Nearest sea port",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "air_port",
+    "label": "Nearest airport",
+    "section": "Specifications",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "lead_time_days",
+    "label": "Lead time (days)",
+    "section": "Commercial",
+    "type": "number",
+    "required": false
+  },
+  {
+    "key": "moq_color",
+    "label": "MOQ per colour",
+    "section": "Commercial",
+    "type": "number",
+    "required": false
+  },
+  {
+    "key": "moq_order",
+    "label": "MOQ per order",
+    "section": "Commercial",
+    "type": "number",
+    "required": false
+  },
+  {
+    "key": "quantity_unit",
+    "label": "MOQ unit",
+    "section": "Commercial",
+    "type": "select",
+    "required": false,
+    "options": [
+      "Metre",
+      "Yard",
+      "Piece",
+      "Kg",
+      "Cone",
+      "Tube",
+      "Set",
+      "Roll"
+    ]
+  },
+  {
+    "key": "price",
+    "label": "Current quoted price",
+    "section": "Commercial",
+    "type": "number",
+    "required": false
+  },
+  {
+    "key": "currency",
+    "label": "Currency",
+    "section": "Commercial",
+    "type": "select",
+    "required": false,
+    "options": [
+      "USD",
+      "INR",
+      "AED",
+      "EUR",
+      "GBP",
+      "CNY"
+    ]
+  },
+  {
+    "key": "price_unit",
+    "label": "Price per unit",
+    "section": "Commercial",
+    "type": "select",
+    "required": false,
+    "options": [
+      "Metre",
+      "Yard",
+      "Piece",
+      "Kg",
+      "Cone",
+      "Tube",
+      "Set",
+      "Roll"
+    ]
+  },
+  {
+    "key": "price_date",
+    "label": "Price quoted date",
+    "section": "Commercial",
+    "type": "date",
+    "required": false
+  },
+  {
+    "key": "price_code",
+    "label": "Price reference code",
+    "section": "Commercial",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "price_note",
+    "label": "Price / quantity basis",
+    "section": "Commercial",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "sample_length",
+    "label": "Sample length",
+    "section": "Sample details",
+    "type": "number",
+    "required": false
+  },
+  {
+    "key": "sample_length_unit",
+    "label": "Sample length unit",
+    "section": "Sample details",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "lpo_reference",
+    "label": "LPO reference",
+    "section": "Sample details",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "length_metres",
+    "label": "Length (metres)",
+    "section": "Sample details",
+    "type": "number",
+    "required": false
+  },
+  {
+    "key": "labdip_reference",
+    "label": "Labdip reference",
+    "section": "Sample details",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "handloom_reference",
+    "label": "Handloom reference",
+    "section": "Sample details",
+    "type": "text",
+    "required": false
+  },
+  {
+    "key": "remarks",
+    "label": "Remarks",
+    "section": "Sample details",
+    "type": "textarea",
+    "required": false
+  }
+]

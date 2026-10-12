@@ -1,0 +1,91 @@
+# Runs only inside company_setup.py's temporary database and real HTTP server.
+ops_user('qa.sample.coordinator','Sampling Manager');sample_coordinator=Client('qa.sample.coordinator')
+ops_user('qa.sample.auditor','Sampling QA Manager');sample_auditor=Client('qa.sample.auditor')
+actor=merch_a.call('/session')['user']['id']
+fabric=int(sql(f"INSERT INTO material_samples(company_id,supplier_setup_id,kind,code,created_by,updated_by) VALUES({opscompany},{cid},'fabric','QA-ETF-SAMPLE',{actor},{actor}) RETURNING id",name).splitlines()[0])
+profile={'buyer_style':'PLANNING-STYLE','sample_type':'Proto','est':'12345','product':'Trousers','brand':'QA Brand','plan_date':'2026-11-20','buyer_required_date':'2026-11-25','material_id':str(fabric),'pattern_status':'New'}
+request=merch_a.call('/sample-requests',{'company_id':opscompany,'buyer_id':buyer_a,'profile':profile,'variants':[{'size':'M','colour':'Navy','quantity':2}],'bom':[],'action':'submit'})
+rid=request['id'];sp='/sample-requests/'+str(rid)
+check(sample_coordinator.call('/sample-requests')['records']==[],'Sampling cannot see unapproved merchant requests')
+sample_coordinator.call(sp,expect=403)
+merch_b.call(sp,expect=404)
+merch_a.call(sp,{'version':request['version'],'action':'approve'},403)
+approved=approver_ops.call(sp,{'version':request['version'],'action':'approve'})
+approver_ops.call(sp,{'version':request['version'],'action':'approve'},409)
+pieces=sample_coordinator.call(sp)['pieces'];check(len(pieces)==2 and pieces[1]['id']==pieces[0]['id']+1,'Each identical garment receives one consecutive indent')
+iid=pieces[0]['id']
+def piece_now():return next(i for i in sample_coordinator.call(sp)['pieces'] if i['id']==iid)
+def stage(c,action,expect=200,**kw):return c.call('/sample-indents/'+str(iid),{'version':piece_now()['version'],'action':action,**kw},expect)
+check(len(merch_a.call('/sample-planning')['rows'])==2,'Master shows one row per garment')
+check(merch_b.call('/sample-planning')['total']==0,'Master excludes other buyer teams')
+# Dated capacity, Sunday and holiday handling, preview/freeze and stale preview protection.
+start_day=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5,minutes=30))).date()
+while start_day.weekday()!=5:start_day+=datetime.timedelta(days=1)
+start_iso=start_day.isoformat();holiday=(start_day+datetime.timedelta(days=2)).isoformat()
+cap_body={'company_id':opscompany,'resource':'General','effective_date':start_iso,'tailors':1,'pieces_per_tailor':1,'weekly_off':[0],'holidays':[holiday]}
+sample_coordinator.call('/sample-capacities',cap_body,403)
+cap=admin.call('/sample-capacities',cap_body)
+plan_body={'company_id':opscompany,'resource':'General','start_date':start_iso,'indents':[{'id':p['id'],'version':p['version']} for p in pieces],'action':'preview'}
+preview=sample_coordinator.call('/sample-schedule',plan_body)
+check([r['plan_date'] for r in preview['rows']]==[start_iso,(start_day+datetime.timedelta(days=3)).isoformat()],'Capacity preview skips Sunday and configured Monday holiday')
+current_cap=next(c for c in admin.call('/sample-capacities')['records'] if c['id']==cap['id'])
+admin.call('/sample-capacities',{**current_cap,'tailors':2})
+sample_coordinator.call('/sample-schedule',{**plan_body,'action':'freeze','token':preview['token']},409)
+preview=sample_coordinator.call('/sample-schedule',plan_body)
+frozen=sample_coordinator.call('/sample-schedule',{**plan_body,'action':'freeze','token':preview['token']})
+check(len(frozen['rows'])==2,'Frozen plan reserves each selected garment atomically')
+sample_coordinator.call('/sample-schedule',{**plan_body,'action':'freeze','token':preview['token']},409)
+check(sample_coordinator.call('/sample-planning?unplanned=true')['total']==0,'Frozen indents leave unplanned queue')
+stage(sample_coordinator,'sew',400);stage(sample_coordinator,'audit',403)
+stage(cad,'pattern');stage(sample_coordinator,'cut',400)
+stage(sample_coordinator,'file_review',result='Clear',note='Specification and supporting files accepted')
+plan={'sample_maker':'QA Tailor','fabric_update_date':'2026-10-01','trims_update_date':'2026-10-01','style_update_date':'2026-10-01','handover_dc':'QA-DC-1','audit_actual':'FORGED','audit_reports':[{'result':'Approved'}]}
+stage(sample_coordinator,'plan',production=plan)
+check('audit_actual' not in piece_now()['production'],'Planning cannot forge QA timestamps or reports')
+stage(merch_a,'cut',403)
+for step in ['cut','allocate','sew_start','sew','finish_start','finish']:stage(sample_coordinator,step)
+stage(sample_coordinator,'merchant_handover',400,destination='Merchant')
+audit_fixture={'fabric_used':'Actual','trims_used':'Actual','style_used':'Actual','submission_attempt':'1','measurements':[{'point':'Chest','required':'100','actual':'101','unit':'cm','tolerance':'0.5'}]}
+stage(sample_auditor,'audit_start');stage(sample_auditor,'audit',400,result='Rework',note='')
+stage(sample_auditor,'audit',result='Rework',note='Chest out of tolerance',audit=audit_fixture)
+for step in ['sew_start','sew','finish_start','finish']:stage(sample_coordinator,step)
+audit_fixture['submission_attempt']='2';audit_fixture['measurements'][0]['actual']='100'
+stage(sample_auditor,'audit',result='Approved',note='Within specification',audit=audit_fixture)
+reports=piece_now()['production']['audit_reports'];check(len(reports)==2 and reports[0]['result']=='Rework' and reports[1]['auditor_id']==sample_auditor.call('/session')['user']['id'],'Signed audit revisions preserve earlier rework and server actor')
+file=sample_auditor.call(sp+'/files?category=Audit%20sheet&indent_id='+str(iid),multipart,headers={'Content-Type':'multipart/form-data; boundary='+boundary})
+filemeta=next(f for f in sample_coordinator.call(sp)['files'] if f['id']==file['id']);check(filemeta['indent_id']==iid,'Audit attachment links to its individual garment')
+merch_b.call('/sample-files/'+str(file['id']),expect=404)
+sample_auditor.call(sp+'/files?category=Audit%20sheet&indent_id=99999999',multipart,400,{'Content-Type':'multipart/form-data; boundary='+boundary})
+stage(merch_a,'merchant_handover',destination='Merchant')
+stage(merch_a,'handover',400,dispatch={'awb':'','dispatch_to':'','dispatch_from':''})
+version=piece_now()['version'];stage(merch_a,'handover',dispatch={'awb':'QA-AWB-001','dispatch_to':'QA Buyer\nTest address','dispatch_from':'QA Company\nTest sender','dispatch_contact':'QA Contact'})
+merch_a.call('/sample-indents/'+str(iid),{'version':version,'action':'handover','dispatch':{}},409)
+stage(sample_coordinator,'plan',403,production=plan)
+check(merch_a.call('/sample-planning?view=live')['total']==1,'Final handover leaves live chart but preserves remaining pieces')
+check(merch_a.call('/sample-planning?view=master')['total']==2,'Completed indent remains in master register')
+check(merch_a.call('/sample-planning?search=QA-AWB-001')['total']==0,'Search remains restricted to documented reference fields')
+check(merch_a.call('/sample-planning?search=PLANNING-STYLE')['total']==2,'Search queries the full scoped register')
+check('Final' not in json.dumps(merch_b.call('/sample-planning')),'Other team receives no hidden progress')
+
+stage(merch_a,'buyer_feedback',result='Pass',note='Buyer accepted fit')
+check(piece_now()['production']['buyer_result']=='Pass','Buyer feedback remains separate from internal QA')
+# Import previews never modify signed reports or the database.
+csv_boundary='spec-import'
+csv_body=(f'--{csv_boundary}\r\nContent-Disposition: form-data; name="file"; filename="spec.csv"\r\nContent-Type: text/csv\r\n\r\nPoint,M,XL\nChest,100,110\nLength,70,75\n\r\n--{csv_boundary}--\r\n').encode()
+parsed=sample_auditor.call('/sample-indents/'+str(iid)+'/spec-import',csv_body,headers={'Content-Type':'multipart/form-data; boundary='+csv_boundary})
+check(parsed['sheets'][0]['rows'][1][1]=='100','Specification preview extracts the selected worksheet columns')
+merch_a.call('/sample-indents/'+str(iid)+'/spec-import',csv_body,403,headers={'Content-Type':'multipart/form-data; boundary='+csv_boundary})
+check(len(piece_now()['production']['audit_reports'])==2,'Import preview does not change signed audits')
+
+# Hidden buyer teams still consume shared capacity without leaking their records.
+restricted_id=ops_user('qa.sample.restricted','Sampling Manager');access_edit(restricted_id,restrict_buyers=True,buyer_ids=[buyer_b]);restricted_sampling=Client('qa.sample.restricted')
+r2=merch_b.call('/sample-requests',{'company_id':opscompany,'buyer_id':buyer_b,'profile':{**profile,'buyer_style':'OTHER-BUYER-STYLE'},'variants':[{'size':'L','colour':'Black','quantity':1}],'bom':[],'action':'submit'})
+sp2='/sample-requests/'+str(r2['id']);approver_ops.call(sp2,{'version':r2['version'],'action':'approve'})
+p2=restricted_sampling.call(sp2)['pieces'][0]
+check(restricted_sampling.call('/sample-planning')['total']==1,'Restricted planner sees only their buyer garments')
+restricted_plan=restricted_sampling.call('/sample-schedule',{'company_id':opscompany,'resource':'General','start_date':start_iso,'action':'preview','indents':[{'id':p2['id'],'version':p2['version']}]})
+check(restricted_plan['rows'][0]['plan_date']==(start_day+datetime.timedelta(days=3)).isoformat(),'Hidden team reservations still consume shared capacity')
+restricted_sampling.call(sp,expect=404)
+if os.getenv('SAMPLE_UI_TEST'):
+ print('SAMPLE_UI_READY',flush=True)
+ while not (ROOT/'docs/finish-ui').exists():time.sleep(1)

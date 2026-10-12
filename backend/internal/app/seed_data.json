@@ -1,0 +1,1817 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "name": "Euro Suits",
+      "kind": "Self",
+      "status": "Approved"
+    },
+    {
+      "id": 2,
+      "name": "Euro TRS MFG",
+      "kind": "Sub company",
+      "status": "Approved"
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "name": "Team A",
+      "company_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Team B",
+      "company_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Team A",
+      "company_id": 2
+    }
+  ],
+  "buyers": [
+    {
+      "id": 1,
+      "name": "Northbridge Apparel",
+      "company_id": 1,
+      "team_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Harrington & Co.",
+      "company_id": 1,
+      "team_id": 2
+    },
+    {
+      "id": 3,
+      "name": "Meridian Retail",
+      "company_id": 1,
+      "team_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Westfield Clothing",
+      "company_id": 1,
+      "team_id": 2
+    },
+    {
+      "id": 5,
+      "name": "Atlas Menswear",
+      "company_id": 2,
+      "team_id": 3
+    }
+  ],
+  "lines": [
+    {
+      "id": 1,
+      "name": "Line 01",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Line 02",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Line 03",
+      "capacity": 400,
+      "company_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Line 04",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 5,
+      "name": "Line 05",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 6,
+      "name": "Line 06",
+      "capacity": 400,
+      "company_id": 1
+    },
+    {
+      "id": 7,
+      "name": "Line 07",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 8,
+      "name": "Line 08",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 9,
+      "name": "Line 09",
+      "capacity": 400,
+      "company_id": 1
+    },
+    {
+      "id": 10,
+      "name": "Line 10",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 11,
+      "name": "Line 11",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 12,
+      "name": "Line 12",
+      "capacity": 400,
+      "company_id": 1
+    },
+    {
+      "id": 13,
+      "name": "Line 13",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 14,
+      "name": "Line 14",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 15,
+      "name": "Line 15",
+      "capacity": 400,
+      "company_id": 1
+    },
+    {
+      "id": 16,
+      "name": "Line 16",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 17,
+      "name": "Line 17",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 18,
+      "name": "Line 18",
+      "capacity": 400,
+      "company_id": 1
+    },
+    {
+      "id": 19,
+      "name": "Line 19",
+      "capacity": 500,
+      "company_id": 1
+    },
+    {
+      "id": 20,
+      "name": "Line 20",
+      "capacity": 600,
+      "company_id": 1
+    },
+    {
+      "id": 21,
+      "name": "Line 01",
+      "capacity": 500,
+      "company_id": 2
+    }
+  ],
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "Burlington Textiles",
+      "category": "Fabrics",
+      "designation": "Nominated",
+      "contact": "Demo supplier",
+      "buyer_id": 1,
+      "company_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Fine Thread Industries",
+      "category": "Trims",
+      "designation": "Direct",
+      "contact": "Demo supplier",
+      "buyer_id": null,
+      "company_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Pacific Fabric Mills",
+      "category": "Fabrics",
+      "designation": "Non-nominated",
+      "contact": "Demo supplier",
+      "buyer_id": null,
+      "company_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Precision Sewing Systems",
+      "category": "Machines & parts",
+      "designation": "Direct",
+      "contact": "Demo supplier",
+      "buyer_id": null,
+      "company_id": 1
+    },
+    {
+      "id": 5,
+      "name": "Express Cargo Services",
+      "category": "Export logistics",
+      "designation": "Nominated",
+      "contact": "Demo supplier",
+      "buyer_id": 1,
+      "company_id": 1
+    },
+    {
+      "id": 6,
+      "name": "Classic Embroidery Works",
+      "category": "Job workers",
+      "designation": "Non-nominated",
+      "contact": "Demo supplier",
+      "buyer_id": null,
+      "company_id": 1
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "sku": "FAB-001",
+      "name": "Navy wool blend \u00b7 240 GSM",
+      "store": "Fabric",
+      "unit": "metres",
+      "company_id": 1,
+      "reorder_hundredths": 200000
+    },
+    {
+      "id": 2,
+      "sku": "FAB-002",
+      "name": "Charcoal stretch twill",
+      "store": "Fabric",
+      "unit": "metres",
+      "company_id": 1,
+      "reorder_hundredths": 150000
+    },
+    {
+      "id": 3,
+      "sku": "FAB-003",
+      "name": "White Oxford cotton",
+      "store": "Fabric",
+      "unit": "metres",
+      "company_id": 1,
+      "reorder_hundredths": 100000
+    },
+    {
+      "id": 4,
+      "sku": "TRM-001",
+      "name": "Matte horn button \u00b7 24L",
+      "store": "Trims",
+      "unit": "pieces",
+      "company_id": 1,
+      "reorder_hundredths": 500000
+    },
+    {
+      "id": 5,
+      "sku": "TRM-002",
+      "name": "Concealed zipper \u00b7 8 inch",
+      "store": "Trims",
+      "unit": "pieces",
+      "company_id": 1,
+      "reorder_hundredths": 100000
+    },
+    {
+      "id": 6,
+      "sku": "TRM-003",
+      "name": "Woven care label",
+      "store": "Trims",
+      "unit": "pieces",
+      "company_id": 1,
+      "reorder_hundredths": 500000
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "po": "ES-260901",
+      "style": "Classic two-piece suit",
+      "product": "Suits",
+      "quantity": 2400,
+      "due_date": "2026-09-23",
+      "stage": "Sewing",
+      "approval": "Approved",
+      "finishing_unit": "Suits",
+      "sub_line": "Suits A",
+      "cutting_table": "Table 1",
+      "marker": "A",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 1,
+      "company_id": 1,
+      "line_id": 1,
+      "team_id": 1,
+      "created_by": 1,
+      "unit_price_minor": 4500
+    },
+    {
+      "id": 2,
+      "po": "ES-260902",
+      "style": "Tailored stretch trouser",
+      "product": "Trousers",
+      "quantity": 3200,
+      "due_date": "2026-09-29",
+      "stage": "Cutting",
+      "approval": "Approved",
+      "finishing_unit": "Trousers",
+      "sub_line": "Trousers A",
+      "cutting_table": "Table 3",
+      "marker": "C",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 2,
+      "company_id": 1,
+      "line_id": 3,
+      "team_id": 2,
+      "created_by": 1,
+      "unit_price_minor": 5000
+    },
+    {
+      "id": 3,
+      "po": "ES-260903",
+      "style": "Oxford formal shirt",
+      "product": "Shirts",
+      "quantity": 1800,
+      "due_date": "2026-09-19",
+      "stage": "Finishing",
+      "approval": "Approved",
+      "finishing_unit": "Shirts",
+      "sub_line": "Shirts A",
+      "cutting_table": "Table 6",
+      "marker": "C",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 3,
+      "company_id": 1,
+      "line_id": 6,
+      "team_id": 1,
+      "created_by": 1,
+      "unit_price_minor": 5500
+    },
+    {
+      "id": 4,
+      "po": "ES-260904",
+      "style": "Slim-fit business suit",
+      "product": "Suits",
+      "quantity": 1500,
+      "due_date": "2026-09-17",
+      "stage": "Packing",
+      "approval": "Approved",
+      "finishing_unit": "Suits",
+      "sub_line": "Suits A",
+      "cutting_table": "Table 2",
+      "marker": "B",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 4,
+      "company_id": 1,
+      "line_id": 2,
+      "team_id": 2,
+      "created_by": 1,
+      "unit_price_minor": 6000
+    },
+    {
+      "id": 5,
+      "po": "ES-260905",
+      "style": "Wool blend blazer",
+      "product": "General",
+      "quantity": 900,
+      "due_date": "2026-10-04",
+      "stage": "Sampling",
+      "approval": "Approved",
+      "finishing_unit": "General",
+      "sub_line": "General A",
+      "cutting_table": "Table 4",
+      "marker": "A",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 1,
+      "company_id": 1,
+      "line_id": null,
+      "team_id": 1,
+      "created_by": 1,
+      "unit_price_minor": 6500
+    },
+    {
+      "id": 6,
+      "po": "ES-260906",
+      "style": "Pleated formal trouser",
+      "product": "Trousers",
+      "quantity": 2800,
+      "due_date": "2026-10-02",
+      "stage": "Planning",
+      "approval": "Approved",
+      "finishing_unit": "Trousers",
+      "sub_line": "Trousers A",
+      "cutting_table": "Table 5",
+      "marker": "B",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 2,
+      "company_id": 1,
+      "line_id": 5,
+      "team_id": 2,
+      "created_by": 1,
+      "unit_price_minor": 7000
+    },
+    {
+      "id": 7,
+      "po": "ES-260907",
+      "style": "Premium dinner suit",
+      "product": "Suits",
+      "quantity": 1200,
+      "due_date": "2026-09-13",
+      "stage": "Sewing",
+      "approval": "Approved",
+      "finishing_unit": "Suits",
+      "sub_line": "Suits A",
+      "cutting_table": "Table 1",
+      "marker": "A",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 3,
+      "company_id": 1,
+      "line_id": 7,
+      "team_id": 1,
+      "created_by": 1,
+      "unit_price_minor": 7500
+    },
+    {
+      "id": 8,
+      "po": "ES-260908",
+      "style": "Poplin office shirt",
+      "product": "Shirts",
+      "quantity": 3600,
+      "due_date": "2026-10-10",
+      "stage": "Development",
+      "approval": "Pending",
+      "finishing_unit": "",
+      "sub_line": "Shirts A",
+      "cutting_table": "Table 2",
+      "marker": "B",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 4,
+      "company_id": 1,
+      "line_id": null,
+      "team_id": 2,
+      "created_by": 1,
+      "unit_price_minor": 8000
+    },
+    {
+      "id": 9,
+      "po": "ES-260909",
+      "style": "Essential formal trouser",
+      "product": "Trousers",
+      "quantity": 2000,
+      "due_date": "2026-09-16",
+      "stage": "Warehouse",
+      "approval": "Approved",
+      "finishing_unit": "Trousers",
+      "sub_line": "Trousers A",
+      "cutting_table": "Table 3",
+      "marker": "C",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 1,
+      "company_id": 1,
+      "line_id": 9,
+      "team_id": 1,
+      "created_by": 1,
+      "unit_price_minor": 8500
+    },
+    {
+      "id": 10,
+      "po": "ES-260910",
+      "style": "Signature navy suit",
+      "product": "Suits",
+      "quantity": 800,
+      "due_date": "2026-09-15",
+      "stage": "Invoiced",
+      "approval": "Approved",
+      "finishing_unit": "Suits",
+      "sub_line": "Suits A",
+      "cutting_table": "Table 4",
+      "marker": "A",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "DEMO-INV-0910",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 2,
+      "company_id": 1,
+      "line_id": 10,
+      "team_id": 2,
+      "created_by": 1,
+      "unit_price_minor": 9000
+    },
+    {
+      "id": 11,
+      "po": "ES-260911",
+      "style": "Travel stretch blazer",
+      "product": "General",
+      "quantity": 1000,
+      "due_date": "2026-09-12",
+      "stage": "Dispatched",
+      "approval": "Approved",
+      "finishing_unit": "General",
+      "sub_line": "General A",
+      "cutting_table": "Table 5",
+      "marker": "B",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "DEMO-INV-0910",
+      "dispatch_reference": "DEMO-DSP-0911",
+      "version": 1,
+      "buyer_id": 3,
+      "company_id": 1,
+      "line_id": 11,
+      "team_id": 1,
+      "created_by": 1,
+      "unit_price_minor": 9500
+    },
+    {
+      "id": 12,
+      "po": "ES-260912",
+      "style": "Modern fit shirt",
+      "product": "Shirts",
+      "quantity": 2200,
+      "due_date": "2026-10-15",
+      "stage": "Development",
+      "approval": "Pending",
+      "finishing_unit": "",
+      "sub_line": "Shirts A",
+      "cutting_table": "Table 6",
+      "marker": "C",
+      "currency": "USD",
+      "notes": "Illustrative local test order. Not imported business transactions.",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 4,
+      "company_id": 1,
+      "line_id": null,
+      "team_id": 2,
+      "created_by": 1,
+      "unit_price_minor": 10000
+    },
+    {
+      "id": 13,
+      "po": "TRS-260901",
+      "style": "Everyday formal trouser",
+      "product": "Trousers",
+      "quantity": 3000,
+      "due_date": "2026-10-05",
+      "stage": "Planning",
+      "approval": "Approved",
+      "finishing_unit": "Trousers",
+      "sub_line": "",
+      "cutting_table": "",
+      "marker": "",
+      "currency": "USD",
+      "notes": "",
+      "invoice_number": "",
+      "dispatch_reference": "",
+      "version": 1,
+      "buyer_id": 5,
+      "company_id": 2,
+      "line_id": 21,
+      "team_id": 3,
+      "created_by": 1,
+      "unit_price_minor": 0
+    }
+  ],
+  "entries": [
+    {
+      "id": 1,
+      "stage": "Cutting",
+      "good": 2400,
+      "note": "Demo opening output",
+      "order_id": 1,
+      "created_by": 1,
+      "rework": 0
+    },
+    {
+      "id": 2,
+      "stage": "Sewing",
+      "good": 1632,
+      "note": "Demo opening output",
+      "order_id": 1,
+      "created_by": 1,
+      "rework": 0
+    },
+    {
+      "id": 3,
+      "stage": "Cutting",
+      "good": 1344,
+      "note": "Demo opening output",
+      "order_id": 2,
+      "created_by": 1,
+      "rework": 1
+    },
+    {
+      "id": 4,
+      "stage": "Cutting",
+      "good": 1800,
+      "note": "Demo opening output",
+      "order_id": 3,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 5,
+      "stage": "Sewing",
+      "good": 1800,
+      "note": "Demo opening output",
+      "order_id": 3,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 6,
+      "stage": "Finishing",
+      "good": 1476,
+      "note": "Demo opening output",
+      "order_id": 3,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 7,
+      "stage": "Cutting",
+      "good": 1500,
+      "note": "Demo opening output",
+      "order_id": 4,
+      "created_by": 1,
+      "rework": 3
+    },
+    {
+      "id": 8,
+      "stage": "Sewing",
+      "good": 1500,
+      "note": "Demo opening output",
+      "order_id": 4,
+      "created_by": 1,
+      "rework": 3
+    },
+    {
+      "id": 9,
+      "stage": "Finishing",
+      "good": 1500,
+      "note": "Demo opening output",
+      "order_id": 4,
+      "created_by": 1,
+      "rework": 3
+    },
+    {
+      "id": 10,
+      "stage": "Packing",
+      "good": 1350,
+      "note": "Demo opening output",
+      "order_id": 4,
+      "created_by": 1,
+      "rework": 3
+    },
+    {
+      "id": 11,
+      "stage": "Cutting",
+      "good": 1200,
+      "note": "Demo opening output",
+      "order_id": 7,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 12,
+      "stage": "Sewing",
+      "good": 648,
+      "note": "Demo opening output",
+      "order_id": 7,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 13,
+      "stage": "Cutting",
+      "good": 2000,
+      "note": "Demo opening output",
+      "order_id": 9,
+      "created_by": 1,
+      "rework": 0
+    },
+    {
+      "id": 14,
+      "stage": "Sewing",
+      "good": 2000,
+      "note": "Demo opening output",
+      "order_id": 9,
+      "created_by": 1,
+      "rework": 0
+    },
+    {
+      "id": 15,
+      "stage": "Finishing",
+      "good": 2000,
+      "note": "Demo opening output",
+      "order_id": 9,
+      "created_by": 1,
+      "rework": 0
+    },
+    {
+      "id": 16,
+      "stage": "Packing",
+      "good": 2000,
+      "note": "Demo opening output",
+      "order_id": 9,
+      "created_by": 1,
+      "rework": 0
+    },
+    {
+      "id": 17,
+      "stage": "Cutting",
+      "good": 800,
+      "note": "Demo opening output",
+      "order_id": 10,
+      "created_by": 1,
+      "rework": 1
+    },
+    {
+      "id": 18,
+      "stage": "Sewing",
+      "good": 800,
+      "note": "Demo opening output",
+      "order_id": 10,
+      "created_by": 1,
+      "rework": 1
+    },
+    {
+      "id": 19,
+      "stage": "Finishing",
+      "good": 800,
+      "note": "Demo opening output",
+      "order_id": 10,
+      "created_by": 1,
+      "rework": 1
+    },
+    {
+      "id": 20,
+      "stage": "Packing",
+      "good": 800,
+      "note": "Demo opening output",
+      "order_id": 10,
+      "created_by": 1,
+      "rework": 1
+    },
+    {
+      "id": 21,
+      "stage": "Cutting",
+      "good": 1000,
+      "note": "Demo opening output",
+      "order_id": 11,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 22,
+      "stage": "Sewing",
+      "good": 1000,
+      "note": "Demo opening output",
+      "order_id": 11,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 23,
+      "stage": "Finishing",
+      "good": 1000,
+      "note": "Demo opening output",
+      "order_id": 11,
+      "created_by": 1,
+      "rework": 2
+    },
+    {
+      "id": 24,
+      "stage": "Packing",
+      "good": 1000,
+      "note": "Demo opening output",
+      "order_id": 11,
+      "created_by": 1,
+      "rework": 2
+    }
+  ],
+  "quality": [
+    {
+      "id": 1,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 1,
+      "created_by": 1
+    },
+    {
+      "id": 2,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 1,
+      "created_by": 1
+    },
+    {
+      "id": 3,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 1,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 2,
+      "created_by": 1
+    },
+    {
+      "id": 4,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 3,
+      "created_by": 1
+    },
+    {
+      "id": 5,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 3,
+      "created_by": 1
+    },
+    {
+      "id": 6,
+      "stage": "Finishing",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 3,
+      "created_by": 1
+    },
+    {
+      "id": 7,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 4,
+      "created_by": 1
+    },
+    {
+      "id": 8,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 4,
+      "created_by": 1
+    },
+    {
+      "id": 9,
+      "stage": "Finishing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 4,
+      "created_by": 1
+    },
+    {
+      "id": 10,
+      "stage": "Packing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 4,
+      "created_by": 1
+    },
+    {
+      "id": 11,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 7,
+      "created_by": 1
+    },
+    {
+      "id": 12,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 7,
+      "created_by": 1
+    },
+    {
+      "id": 13,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 9,
+      "created_by": 1
+    },
+    {
+      "id": 14,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 9,
+      "created_by": 1
+    },
+    {
+      "id": 15,
+      "stage": "Finishing",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 9,
+      "created_by": 1
+    },
+    {
+      "id": 16,
+      "stage": "Packing",
+      "inspected": 80,
+      "defects": 2,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 9,
+      "created_by": 1
+    },
+    {
+      "id": 17,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 10,
+      "created_by": 1
+    },
+    {
+      "id": 18,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 10,
+      "created_by": 1
+    },
+    {
+      "id": 19,
+      "stage": "Finishing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 10,
+      "created_by": 1
+    },
+    {
+      "id": 20,
+      "stage": "Packing",
+      "inspected": 80,
+      "defects": 0,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 10,
+      "created_by": 1
+    },
+    {
+      "id": 21,
+      "stage": "Cutting",
+      "inspected": 80,
+      "defects": 1,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 11,
+      "created_by": 1
+    },
+    {
+      "id": 22,
+      "stage": "Sewing",
+      "inspected": 80,
+      "defects": 1,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 11,
+      "created_by": 1
+    },
+    {
+      "id": 23,
+      "stage": "Finishing",
+      "inspected": 80,
+      "defects": 1,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 11,
+      "created_by": 1
+    },
+    {
+      "id": 24,
+      "stage": "Packing",
+      "inspected": 80,
+      "defects": 1,
+      "result": "Pass",
+      "notes": "Demo inspection",
+      "order_id": 11,
+      "created_by": 1
+    }
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "title": "Sample approval",
+      "due_date": "2026-09-02",
+      "done": true,
+      "order_id": 1
+    },
+    {
+      "id": 2,
+      "title": "Material readiness",
+      "due_date": "2026-09-09",
+      "done": true,
+      "order_id": 1
+    },
+    {
+      "id": 3,
+      "title": "Production complete",
+      "due_date": "2026-09-20",
+      "done": false,
+      "order_id": 1
+    },
+    {
+      "id": 4,
+      "title": "Ex-factory",
+      "due_date": "2026-09-23",
+      "done": false,
+      "order_id": 1
+    },
+    {
+      "id": 5,
+      "title": "Sample approval",
+      "due_date": "2026-09-08",
+      "done": false,
+      "order_id": 2
+    },
+    {
+      "id": 6,
+      "title": "Material readiness",
+      "due_date": "2026-09-15",
+      "done": false,
+      "order_id": 2
+    },
+    {
+      "id": 7,
+      "title": "Production complete",
+      "due_date": "2026-09-26",
+      "done": false,
+      "order_id": 2
+    },
+    {
+      "id": 8,
+      "title": "Ex-factory",
+      "due_date": "2026-09-29",
+      "done": false,
+      "order_id": 2
+    },
+    {
+      "id": 9,
+      "title": "Sample approval",
+      "due_date": "2026-08-29",
+      "done": true,
+      "order_id": 3
+    },
+    {
+      "id": 10,
+      "title": "Material readiness",
+      "due_date": "2026-09-05",
+      "done": true,
+      "order_id": 3
+    },
+    {
+      "id": 11,
+      "title": "Production complete",
+      "due_date": "2026-09-16",
+      "done": false,
+      "order_id": 3
+    },
+    {
+      "id": 12,
+      "title": "Ex-factory",
+      "due_date": "2026-09-19",
+      "done": false,
+      "order_id": 3
+    },
+    {
+      "id": 13,
+      "title": "Sample approval",
+      "due_date": "2026-08-27",
+      "done": true,
+      "order_id": 4
+    },
+    {
+      "id": 14,
+      "title": "Material readiness",
+      "due_date": "2026-09-03",
+      "done": true,
+      "order_id": 4
+    },
+    {
+      "id": 15,
+      "title": "Production complete",
+      "due_date": "2026-09-14",
+      "done": false,
+      "order_id": 4
+    },
+    {
+      "id": 16,
+      "title": "Ex-factory",
+      "due_date": "2026-09-17",
+      "done": false,
+      "order_id": 4
+    },
+    {
+      "id": 17,
+      "title": "Sample approval",
+      "due_date": "2026-09-13",
+      "done": false,
+      "order_id": 5
+    },
+    {
+      "id": 18,
+      "title": "Material readiness",
+      "due_date": "2026-09-20",
+      "done": false,
+      "order_id": 5
+    },
+    {
+      "id": 19,
+      "title": "Production complete",
+      "due_date": "2026-10-01",
+      "done": false,
+      "order_id": 5
+    },
+    {
+      "id": 20,
+      "title": "Ex-factory",
+      "due_date": "2026-10-04",
+      "done": false,
+      "order_id": 5
+    },
+    {
+      "id": 21,
+      "title": "Sample approval",
+      "due_date": "2026-09-11",
+      "done": false,
+      "order_id": 6
+    },
+    {
+      "id": 22,
+      "title": "Material readiness",
+      "due_date": "2026-09-18",
+      "done": false,
+      "order_id": 6
+    },
+    {
+      "id": 23,
+      "title": "Production complete",
+      "due_date": "2026-09-29",
+      "done": false,
+      "order_id": 6
+    },
+    {
+      "id": 24,
+      "title": "Ex-factory",
+      "due_date": "2026-10-02",
+      "done": false,
+      "order_id": 6
+    },
+    {
+      "id": 25,
+      "title": "Sample approval",
+      "due_date": "2026-08-23",
+      "done": true,
+      "order_id": 7
+    },
+    {
+      "id": 26,
+      "title": "Material readiness",
+      "due_date": "2026-08-30",
+      "done": true,
+      "order_id": 7
+    },
+    {
+      "id": 27,
+      "title": "Production complete",
+      "due_date": "2026-09-10",
+      "done": false,
+      "order_id": 7
+    },
+    {
+      "id": 28,
+      "title": "Ex-factory",
+      "due_date": "2026-09-13",
+      "done": false,
+      "order_id": 7
+    },
+    {
+      "id": 29,
+      "title": "Sample approval",
+      "due_date": "2026-09-19",
+      "done": false,
+      "order_id": 8
+    },
+    {
+      "id": 30,
+      "title": "Material readiness",
+      "due_date": "2026-09-26",
+      "done": false,
+      "order_id": 8
+    },
+    {
+      "id": 31,
+      "title": "Production complete",
+      "due_date": "2026-10-07",
+      "done": false,
+      "order_id": 8
+    },
+    {
+      "id": 32,
+      "title": "Ex-factory",
+      "due_date": "2026-10-10",
+      "done": false,
+      "order_id": 8
+    },
+    {
+      "id": 33,
+      "title": "Sample approval",
+      "due_date": "2026-08-26",
+      "done": true,
+      "order_id": 9
+    },
+    {
+      "id": 34,
+      "title": "Material readiness",
+      "due_date": "2026-09-02",
+      "done": true,
+      "order_id": 9
+    },
+    {
+      "id": 35,
+      "title": "Production complete",
+      "due_date": "2026-09-13",
+      "done": false,
+      "order_id": 9
+    },
+    {
+      "id": 36,
+      "title": "Ex-factory",
+      "due_date": "2026-09-16",
+      "done": false,
+      "order_id": 9
+    },
+    {
+      "id": 37,
+      "title": "Sample approval",
+      "due_date": "2026-08-25",
+      "done": true,
+      "order_id": 10
+    },
+    {
+      "id": 38,
+      "title": "Material readiness",
+      "due_date": "2026-09-01",
+      "done": true,
+      "order_id": 10
+    },
+    {
+      "id": 39,
+      "title": "Production complete",
+      "due_date": "2026-09-12",
+      "done": false,
+      "order_id": 10
+    },
+    {
+      "id": 40,
+      "title": "Ex-factory",
+      "due_date": "2026-09-15",
+      "done": false,
+      "order_id": 10
+    },
+    {
+      "id": 41,
+      "title": "Sample approval",
+      "due_date": "2026-08-22",
+      "done": true,
+      "order_id": 11
+    },
+    {
+      "id": 42,
+      "title": "Material readiness",
+      "due_date": "2026-08-29",
+      "done": true,
+      "order_id": 11
+    },
+    {
+      "id": 43,
+      "title": "Production complete",
+      "due_date": "2026-09-09",
+      "done": true,
+      "order_id": 11
+    },
+    {
+      "id": 44,
+      "title": "Ex-factory",
+      "due_date": "2026-09-12",
+      "done": true,
+      "order_id": 11
+    },
+    {
+      "id": 45,
+      "title": "Sample approval",
+      "due_date": "2026-09-24",
+      "done": false,
+      "order_id": 12
+    },
+    {
+      "id": 46,
+      "title": "Material readiness",
+      "due_date": "2026-10-01",
+      "done": false,
+      "order_id": 12
+    },
+    {
+      "id": 47,
+      "title": "Production complete",
+      "due_date": "2026-10-12",
+      "done": false,
+      "order_id": 12
+    },
+    {
+      "id": 48,
+      "title": "Ex-factory",
+      "due_date": "2026-10-15",
+      "done": false,
+      "order_id": 12
+    }
+  ],
+  "work_items": [
+    {
+      "id": 1,
+      "kind": "Style development",
+      "title": "Classic two-piece suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 1
+    },
+    {
+      "id": 2,
+      "kind": "CAD / pattern",
+      "title": "Classic two-piece suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 1
+    },
+    {
+      "id": 3,
+      "kind": "Pre-production sample",
+      "title": "Classic two-piece suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 1
+    },
+    {
+      "id": 4,
+      "kind": "Style development",
+      "title": "Tailored stretch trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 2
+    },
+    {
+      "id": 5,
+      "kind": "CAD / pattern",
+      "title": "Tailored stretch trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 2
+    },
+    {
+      "id": 6,
+      "kind": "Pre-production sample",
+      "title": "Tailored stretch trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 2
+    },
+    {
+      "id": 7,
+      "kind": "Style development",
+      "title": "Oxford formal shirt",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 3
+    },
+    {
+      "id": 8,
+      "kind": "CAD / pattern",
+      "title": "Oxford formal shirt",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 3
+    },
+    {
+      "id": 9,
+      "kind": "Pre-production sample",
+      "title": "Oxford formal shirt",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 3
+    },
+    {
+      "id": 10,
+      "kind": "Style development",
+      "title": "Slim-fit business suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 4
+    },
+    {
+      "id": 11,
+      "kind": "CAD / pattern",
+      "title": "Slim-fit business suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 4
+    },
+    {
+      "id": 12,
+      "kind": "Pre-production sample",
+      "title": "Slim-fit business suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 4
+    },
+    {
+      "id": 13,
+      "kind": "Style development",
+      "title": "Wool blend blazer",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 5
+    },
+    {
+      "id": 14,
+      "kind": "CAD / pattern",
+      "title": "Wool blend blazer",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 5
+    },
+    {
+      "id": 15,
+      "kind": "Pre-production sample",
+      "title": "Wool blend blazer",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 5
+    },
+    {
+      "id": 16,
+      "kind": "Style development",
+      "title": "Pleated formal trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 6
+    },
+    {
+      "id": 17,
+      "kind": "CAD / pattern",
+      "title": "Pleated formal trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 6
+    },
+    {
+      "id": 18,
+      "kind": "Pre-production sample",
+      "title": "Pleated formal trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 6
+    },
+    {
+      "id": 19,
+      "kind": "Style development",
+      "title": "Premium dinner suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 7
+    },
+    {
+      "id": 20,
+      "kind": "CAD / pattern",
+      "title": "Premium dinner suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 7
+    },
+    {
+      "id": 21,
+      "kind": "Pre-production sample",
+      "title": "Premium dinner suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 7
+    },
+    {
+      "id": 22,
+      "kind": "Style development",
+      "title": "Poplin office shirt",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 8
+    },
+    {
+      "id": 23,
+      "kind": "CAD / pattern",
+      "title": "Poplin office shirt",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 8
+    },
+    {
+      "id": 24,
+      "kind": "Pre-production sample",
+      "title": "Poplin office shirt",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 8
+    },
+    {
+      "id": 25,
+      "kind": "Style development",
+      "title": "Essential formal trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 9
+    },
+    {
+      "id": 26,
+      "kind": "CAD / pattern",
+      "title": "Essential formal trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 9
+    },
+    {
+      "id": 27,
+      "kind": "Pre-production sample",
+      "title": "Essential formal trouser",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 9
+    },
+    {
+      "id": 28,
+      "kind": "Style development",
+      "title": "Signature navy suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 10
+    },
+    {
+      "id": 29,
+      "kind": "CAD / pattern",
+      "title": "Signature navy suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 10
+    },
+    {
+      "id": 30,
+      "kind": "Pre-production sample",
+      "title": "Signature navy suit",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 10
+    },
+    {
+      "id": 31,
+      "kind": "Style development",
+      "title": "Travel stretch blazer",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 11
+    },
+    {
+      "id": 32,
+      "kind": "CAD / pattern",
+      "title": "Travel stretch blazer",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 11
+    },
+    {
+      "id": 33,
+      "kind": "Pre-production sample",
+      "title": "Travel stretch blazer",
+      "status": "Approved",
+      "notes": "",
+      "order_id": 11
+    },
+    {
+      "id": 34,
+      "kind": "Style development",
+      "title": "Modern fit shirt",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 12
+    },
+    {
+      "id": 35,
+      "kind": "CAD / pattern",
+      "title": "Modern fit shirt",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 12
+    },
+    {
+      "id": 36,
+      "kind": "Pre-production sample",
+      "title": "Modern fit shirt",
+      "status": "In progress",
+      "notes": "",
+      "order_id": 12
+    }
+  ],
+  "movements": [
+    {
+      "id": 1,
+      "kind": "Receipt",
+      "reference": "DEMO-OPENING",
+      "item_id": 1,
+      "order_id": null,
+      "created_by": 1,
+      "quantity_hundredths": 840000
+    },
+    {
+      "id": 2,
+      "kind": "Receipt",
+      "reference": "DEMO-OPENING",
+      "item_id": 2,
+      "order_id": null,
+      "created_by": 1,
+      "quantity_hundredths": 125000
+    },
+    {
+      "id": 3,
+      "kind": "Receipt",
+      "reference": "DEMO-OPENING",
+      "item_id": 3,
+      "order_id": null,
+      "created_by": 1,
+      "quantity_hundredths": 560000
+    },
+    {
+      "id": 4,
+      "kind": "Receipt",
+      "reference": "DEMO-OPENING",
+      "item_id": 4,
+      "order_id": null,
+      "created_by": 1,
+      "quantity_hundredths": 1800000
+    },
+    {
+      "id": 5,
+      "kind": "Receipt",
+      "reference": "DEMO-OPENING",
+      "item_id": 5,
+      "order_id": null,
+      "created_by": 1,
+      "quantity_hundredths": 65000
+    },
+    {
+      "id": 6,
+      "kind": "Receipt",
+      "reference": "DEMO-OPENING",
+      "item_id": 6,
+      "order_id": null,
+      "created_by": 1,
+      "quantity_hundredths": 2400000
+    }
+  ],
+  "purchases": [
+    {
+      "id": 1,
+      "reference": "PUR-260901",
+      "due_date": "2026-09-18",
+      "status": "Approved",
+      "company_id": 1,
+      "item_id": 1,
+      "order_id": 1,
+      "supplier_id": 1,
+      "created_by": 1,
+      "quantity_hundredths": 200000,
+      "unit_cost_minor": 1200
+    },
+    {
+      "id": 2,
+      "reference": "PUR-260902",
+      "due_date": "2026-09-19",
+      "status": "Pending",
+      "company_id": 1,
+      "item_id": 2,
+      "order_id": 2,
+      "supplier_id": 2,
+      "created_by": 1,
+      "quantity_hundredths": 250000,
+      "unit_cost_minor": 1300
+    },
+    {
+      "id": 3,
+      "reference": "PUR-260903",
+      "due_date": "2026-09-20",
+      "status": "Pending",
+      "company_id": 1,
+      "item_id": 3,
+      "order_id": 3,
+      "supplier_id": 1,
+      "created_by": 1,
+      "quantity_hundredths": 300000,
+      "unit_cost_minor": 1400
+    }
+  ]
+}

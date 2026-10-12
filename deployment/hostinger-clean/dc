@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+cd /opt/euro-suits-erp
+exec docker compose -p euro-suits-production --env-file .env.production -f compose.yaml -f compose.production.yaml "$@"

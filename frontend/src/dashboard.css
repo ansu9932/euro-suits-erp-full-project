@@ -1,0 +1,233 @@
+/* Shared screen styles for all three workspace shells and role sign-in pages.
+   Public landing pages and printed documents retain their own styles. */
+@media screen {
+ body:has(.erp-workspace) {
+  --nav:#142b40; --primary:#087e78; --primary-dark:#06635e;
+  --text:#1b3042; --muted:#526575; --border:#dce5eb; --surface:#fff;
+  --workspace-bg:#f3f6f9; --field-bg:#f0f5f8; --field-border:#b5c7d3;
+  --sidebar-width:248px; --workspace-gutter:32px; --radius:12px;
+  background:var(--workspace-bg); color:var(--text);
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:15px; font-weight:500; line-height:1.55;
+ }
+ body:has(.erp-workspace) :is(h1,h2,h3) {color:var(--text);text-wrap:balance}
+ body:has(.erp-workspace) h1 {font-size:28px;line-height:1.25;letter-spacing:-.8px;font-weight:800}
+ body:has(.erp-workspace) h2 {font-size:19px!important;line-height:1.4;font-weight:800!important;letter-spacing:-.35px}
+ body:has(.erp-workspace) h3 {font-size:16px!important;line-height:1.45;font-weight:700!important;letter-spacing:-.15px}
+ body:has(.erp-workspace) :is(p,td,li,dd,dt) {font-size:15px!important;font-weight:500!important;line-height:1.6}
+ body:has(.erp-workspace) :is(label,legend) {font-size:14px!important;font-weight:700!important;line-height:1.5!important;color:#22394b!important}
+ body:has(.erp-workspace) :is(small,.muted,.material-helper) {font-size:13px!important;font-weight:500!important;line-height:1.6!important;color:var(--muted)!important}
+ body:has(.erp-workspace) .eyebrow {font-size:11px!important;font-weight:700!important;letter-spacing:1.5px;line-height:1.5!important;color:#557080!important;margin-bottom:8px}
+ body:has(.erp-workspace) strong {font-weight:700}
+ body .erp-workspace {background:var(--workspace-bg)!important;min-height:100dvh}
+ .workspace-skip {position:fixed;top:10px;left:280px;z-index:500;transform:translateY(-150%);padding:12px 18px;border-radius:8px;background:#fff;color:var(--text);box-shadow:0 4px 20px #10283b30}
+ .workspace-skip:focus {transform:none}
+
+ /* Navigation stays stable as the content changes. */
+ body .erp-workspace :is(.sidebar,.company-sidebar,.dev-sidebar) {width:var(--sidebar-width);background:var(--nav)!important;color:#dce7ee;position:fixed;inset:0 auto 0 0;height:100dvh;z-index:30;display:flex;flex-direction:column;padding:0;border-right:1px solid #253f54}
+ body .erp-workspace :is(.main-shell,.company-main,.dev-main) {width:calc(100% - var(--sidebar-width));margin-left:var(--sidebar-width);min-width:0;flex:1}
+ body .erp-workspace :is(.brand,.dev-brand) {display:flex;gap:12px;align-items:center;padding:26px 22px 22px}
+ body .erp-workspace :is(.brand,.dev-brand) img {width:42px;height:42px;border-radius:10px;object-fit:contain}
+ body .erp-workspace :is(.brand,.dev-brand) strong {font-family:Manrope,sans-serif;font-size:18px;font-weight:800;letter-spacing:.8px;color:#fff}
+ body .erp-workspace :is(.brand span,.dev-brand small) {font-size:10px!important;letter-spacing:2.4px;color:#bdcedc!important;margin-top:5px;display:block}
+ body .erp-workspace .workspace-label {margin:0 16px 10px;padding:12px;border-color:#345063;background:#1b354b;border-radius:9px}
+ body .erp-workspace .workspace-label strong {font-size:13px;font-weight:600;color:#e5eef4}
+ body .erp-workspace .workspace-monogram {background:#2b4b60;color:#d4e9ed;border-radius:7px;width:30px;height:30px}
+ body .erp-workspace .phase-pill {margin:0 20px;padding:14px 2px 0;border-color:#345063;color:#b7c9d6;font-size:10px;letter-spacing:1.6px}
+ body .erp-workspace .phase-pill span {color:#e5eef4;font-size:13px;font-weight:600;margin-top:6px}
+ body .erp-workspace :is(.sidebar nav,.company-sidebar nav,.dev-sidebar nav) {min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#426078 transparent;padding:6px 12px 20px;margin:0;display:block}
+ body .erp-workspace :is(.company-sidebar nav,.dev-sidebar nav) {margin-top:16px}
+ body .erp-workspace .nav-group {margin-top:18px}
+ body .erp-workspace :is(.nav-group>p,.dev-caption) {font-size:10px!important;line-height:1.4!important;font-weight:700!important;letter-spacing:1.7px;color:#b3c5d4!important;padding:0 13px;margin:0 0 8px}
+ body .erp-workspace .dev-caption {margin-top:12px;margin-left:12px}
+ body .erp-workspace :is(.nav-group button,.company-sidebar nav button,.dev-sidebar nav button) {display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:10px 12px;margin:3px 0;border:1px solid transparent;background:transparent;color:#d6e3ed!important;font-size:14px!important;font-weight:600!important;line-height:1.4;text-align:left;border-radius:8px;transition:background-color 160ms,border-color 160ms,color 160ms}
+ body .erp-workspace :is(.nav-group button,.company-sidebar nav button,.dev-sidebar nav button):hover {background:#203e54;color:#fff!important}
+ body .erp-workspace :is(.nav-group button.active,.company-sidebar nav button.active,.dev-sidebar nav button.active) {background:#194d50;color:#fff!important;border-color:#32696a;box-shadow:inset 3px 0 #61d0ba}
+ body .erp-workspace :is(.nav-group button.active,.company-sidebar nav button.active,.dev-sidebar nav button.active) svg {color:#a0eddb}
+ body .erp-workspace :is(.sidebar,.company-sidebar,.dev-sidebar) svg {flex-shrink:0}
+ body .erp-workspace .sidebar nav>a.button {font-size:12px!important;color:#e1eef3;background:#213e52;border-color:#3d5a70;width:100%;padding:10px 8px}
+ body .erp-workspace :is(.sidebar-bottom,.company-sidebar footer,.dev-owner) {margin-top:auto;padding:18px 20px;background:#112639;border-top:1px solid #30495c;flex-shrink:0}
+ body .erp-workspace :is(.profile-button strong,.company-sidebar footer>strong,.dev-owner>strong) {font-size:14px;line-height:1.45;color:#fff;font-weight:700;overflow-wrap:anywhere}
+ body .erp-workspace :is(.profile-button small,.company-sidebar footer small,.dev-owner small,.demo-label) {font-size:12px!important;line-height:1.5!important;color:#bccedc!important;letter-spacing:0}
+ body .erp-workspace :is(.logout,.company-sidebar footer button,.dev-owner button) {font-size:13px!important;min-height:40px;display:flex;align-items:center;gap:9px;color:#d6e3ed;background:transparent;border:0;padding:8px 0 0;margin:6px 0 0}
+ body .erp-workspace .company-sidebar-note {padding:20px;margin-top:auto;gap:7px}
+ body .erp-workspace .company-sidebar-note p {font-size:12px!important;color:#b9cfda;line-height:1.6}
+ body .erp-workspace .company-sidebar-note strong {color:#e0edf4}
+ body .erp-workspace .company-sidebar-note+footer {margin-top:0}
+ body .erp-workspace .avatar {background:#294b60;color:#e1f5fa;width:36px;height:36px;font-weight:700}
+
+ /* One top bar and one page rhythm across operations, company and developer. */
+ body .erp-workspace :is(.topbar,.company-topbar,.dev-topbar) {height:72px;min-height:72px;padding:0 var(--workspace-gutter);background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border);box-shadow:0 2px 8px #142b4003;gap:16px}
+ body .erp-workspace :is(.breadcrumb,.company-topbar>span,.dev-topbar>span) {display:flex;align-items:center;gap:12px;min-width:0;font-size:13px;color:var(--muted)}
+ body .erp-workspace :is(.breadcrumb strong,.company-topbar strong,.dev-topbar strong) {font-weight:700;color:#1e384a}
+ body .erp-workspace .topbar-actions {gap:12px;flex-shrink:0}
+ body .erp-workspace .top-avatar {width:36px;height:36px;display:grid;place-items:center;background:#e7f3f0;color:#1a665e;font-size:14px}
+ body .erp-workspace :is(.workspace-main,.company-content,.dev-content) {max-width:1680px;padding:30px var(--workspace-gutter) 48px;margin:0 auto;min-width:0;outline:none}
+ body .erp-workspace :is(.page-heading,.company-page-heading) {align-items:center;gap:20px;margin-bottom:26px;flex-wrap:wrap}
+ body .erp-workspace :is(.page-heading,.company-page-heading,.company-detail-heading) h1 {font-size:28px;margin:0;line-height:1.3;letter-spacing:-.8px}
+ body .erp-workspace :is(.page-heading,.company-page-heading)>div>p:last-child {font-size:14px!important;line-height:1.65;color:var(--muted);margin-top:8px;max-width:850px}
+ body .erp-workspace .heading-actions {flex-wrap:wrap;gap:10px}
+ body .erp-workspace :is(.overview-context,.role-explainer) {font-size:13px;color:var(--muted);gap:14px;line-height:1.6}
+ body .erp-workspace .overview-context {margin-bottom:18px}
+ body .erp-workspace .workspace-footer {margin-top:30px;border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:11px;letter-spacing:.6px}
+
+ /* Calm surfaces and consistent data density. */
+ body .erp-workspace :is(.panel,.metric,.line-card,.company-metrics,.samples,.dev-stats article) {background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 2px 6px #17334703}
+ body .erp-workspace .metric-grid {gap:18px;margin-bottom:24px}
+ body .erp-workspace .metric {padding:20px 22px;position:relative;overflow:hidden}
+ body .erp-workspace .metric>div {font-size:13px;font-weight:600;color:#496174}
+ body .erp-workspace .metric>div svg {color:#087e78;background:#eaf5f2;border-radius:8px;padding:6px;width:34px;height:34px;stroke-width:1.7}
+ body .erp-workspace .metric>strong {font-size:34px;letter-spacing:-1px;margin:12px 0 8px;line-height:1.2;font-variant-numeric:tabular-nums}
+ body .erp-workspace .metric>small {font-size:12px!important;display:block;line-height:1.6!important}
+ body .erp-workspace .attention-metric {background:#fffdf8;border-color:#eaddc0}
+ body .erp-workspace .attention-metric>div svg {background:#fcf0d8;color:#8d5c12}
+ body .erp-workspace .attention-metric>strong {color:#8d5c12}
+ body .erp-workspace .overview-columns {gap:22px;margin-bottom:24px;grid-template-columns:minmax(0,1.5fr) minmax(320px,1fr)}
+ body .erp-workspace .panel-header {padding:22px 24px;gap:16px;align-items:center}
+ body .erp-workspace .panel-header p {font-size:13px!important;color:var(--muted);margin-top:5px;line-height:1.6}
+ body .erp-workspace :is(.section-title,.detail-card-heading) {gap:16px;flex-wrap:wrap}
+ body .erp-workspace :is(.table-wrap,.table-scroll,.scroll,.chart) {max-width:100%;min-width:0;overflow:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#aebfcd #f2f6f9}
+ body:has(.erp-workspace) table {width:100%;border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+ body:has(.erp-workspace) th {font-size:12px!important;font-weight:700!important;line-height:1.5!important;letter-spacing:.25px;background:#edf3f7;color:#40596d;padding:14px 18px;border-bottom:1px solid #d6e1e8;white-space:nowrap}
+ body:has(.erp-workspace) td {padding:15px 18px;border-bottom:1px solid #e6edf2;vertical-align:middle;color:#253c4d}
+ body:has(.erp-workspace) tbody tr:last-child>td {border-bottom:0}
+ body .erp-workspace tbody tr {transition:background-color 140ms}
+ body .erp-workspace tbody tr:hover {background:#f5f9fb}
+ body .erp-workspace td small {font-size:12px!important;margin-top:4px;display:block}
+ body .erp-workspace .table-link {font-size:14px;font-weight:700;color:#086f6b;line-height:1.5;text-align:left}
+ body .erp-workspace :is(.table-toolbar,.company-register-toolbar) {padding:18px 22px;gap:16px;align-items:center;flex-wrap:wrap}
+ body .erp-workspace :is(.table-footer,.pager) {font-size:12px;color:var(--muted);padding:16px 22px}
+ body .erp-workspace .search-box {width:min(330px,100%);border:0;background:none;min-width:180px;position:relative;padding:0}
+ body .erp-workspace .search-box svg {position:absolute;left:13px;z-index:1;color:#526b7d;pointer-events:none}
+ body .erp-workspace .search-box input {width:100%;padding-left:38px!important}
+ body .erp-workspace :is(.badge,.status-chip,.running-tag,.subtle-chip) {font-size:12px;font-weight:700;line-height:1.5;padding:5px 9px;border-radius:6px;white-space:nowrap}
+ body .erp-workspace .attention-list {padding:0 24px 8px}
+ body .erp-workspace .attention-list button {padding:16px 0;gap:12px}
+ body .erp-workspace .attention-list strong {font-size:14px;line-height:1.5}
+ body .erp-workspace .attention-list small {font-size:12px!important;margin-top:4px}
+ body .erp-workspace .pipeline {padding:4px 22px 0;gap:8px;height:198px}
+ body .erp-workspace .pipeline-track {height:124px;border-radius:6px;background:#f3f6f9}
+ body .erp-workspace .pipeline-track>div {border-radius:5px}
+ body .erp-workspace .pipeline-column>span:last-child {font-size:11px;color:#456074;line-height:1.4;overflow-wrap:normal;hyphens:none}
+ body .erp-workspace .pipeline-footer {padding:16px 22px;gap:12px}
+ body .erp-workspace .pipeline-footer>span {font-size:12px;color:var(--muted)}
+ body .erp-workspace .line-grid {gap:18px}
+ body .erp-workspace .line-card {padding:20px}
+ body .erp-workspace .line-card p {font-size:14px!important;line-height:1.5;margin:12px 0 4px}
+ body .erp-workspace .line-card footer {font-size:12px;color:#486273}
+ body .erp-workspace :is(.mini-metrics,.company-summary-grid,.dev-stats) {gap:18px}
+ body .erp-workspace .company-metrics>div {padding:22px 24px;gap:8px}
+ body .erp-workspace .company-metrics span {font-size:13px;font-weight:600;color:#496174}
+ body .erp-workspace .company-metrics strong {font-size:30px}
+ body .erp-workspace :is(.company-section,.dev-section,.samples) {padding:24px}
+ body .erp-workspace .detail-card {border-color:var(--border);border-radius:10px;padding:22px;box-shadow:none}
+ body .erp-workspace .section-nav {top:96px}
+ body .erp-workspace .section-nav button {font-size:13px!important;font-weight:600!important;min-height:44px}
+ body .erp-workspace :is(.company-empty,.empty) {padding:48px 24px;color:var(--muted)}
+ body .erp-workspace :is(.company-empty,.empty) p {max-width:540px;font-size:14px!important}
+ body .erp-workspace :is(.company-warning,.company-notice,.form-error,.privacy-banner,.read-only-note) {border-radius:9px;font-size:14px;line-height:1.6}
+
+ /* Editable fields stay gently coloured with strong text and labels. */
+ body:has(.erp-workspace) :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=range]):not([type=color]):not([type=submit]):not([type=button]),select,textarea) {font-size:15px!important;font-weight:600!important;line-height:1.5!important;color:#172f41!important;background:var(--field-bg)!important;border:1px solid var(--field-border)!important;border-radius:8px;min-height:44px;padding:10px 12px;max-width:100%;box-shadow:0 1px 1px #142b4002;transition:background-color 160ms,border-color 160ms,box-shadow 160ms}
+ body:has(.erp-workspace) :is(input,textarea)::placeholder {font-weight:400;color:#5d7181!important;opacity:1}
+ body:has(.erp-workspace) :is(input,select,textarea):focus-visible {background:#fff!important;border-color:#087e78!important;outline:2px solid #087e78!important;outline-offset:2px;box-shadow:0 0 0 4px #087e7812}
+ body:has(.erp-workspace) :is(input,select,textarea):is(:disabled,[readonly]) {background:#eaf0f4!important;border-color:#c5d2dc!important;color:#4c6071!important;box-shadow:none}
+ body:has(.erp-workspace) :is(input,select,textarea)[aria-invalid=true] {background:#fff4f2!important;border-color:#b43c3c!important}
+ body:has(.erp-workspace) :is(button,.button) {font-size:14px!important;font-weight:700!important;line-height:1.4;touch-action:manipulation}
+ body:has(.erp-workspace) .button {min-height:44px;border-radius:8px;padding:10px 15px;gap:8px;box-shadow:none}
+ body:has(.erp-workspace) .primary {background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 2px 3px #087e7810}
+ body:has(.erp-workspace) .primary:hover:not(:disabled) {background:var(--primary-dark);border-color:var(--primary-dark);box-shadow:0 3px 8px #087e781a}
+ body:has(.erp-workspace) .secondary {background:#fff;color:#294557;border-color:#c7d5df}
+ body:has(.erp-workspace) .secondary:hover:not(:disabled) {background:#f1f7f8;border-color:#91b2b5}
+ body:has(.erp-workspace) .text-button {font-size:13px!important;min-height:36px;font-weight:700!important}
+ body:has(.erp-workspace) .icon-button {min-width:40px;min-height:40px;border-radius:8px;color:#4b6578}
+ body:has(.erp-workspace) :is(.icon-button,.button,.text-button):disabled {opacity:.5}
+ body:has(.erp-workspace) .sidebar-toggle {width:40px;min-width:40px;height:40px;padding:9px;border:1px solid #d2dfe7;border-radius:8px;background:#f6f9fb;color:#2b4b60}
+ body:has(.erp-workspace) .sidebar-toggle span {display:none}
+ body:has(.erp-workspace) :is(.filter-tabs,.sample-tabs) {gap:4px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding:5px;border:1px solid #dce6ec;border-radius:10px;background:#f0f4f7;max-width:100%;min-width:0}
+ body:has(.erp-workspace) :is(.filter-tabs button,.sample-tabs button) {font-size:13px!important;min-height:40px;padding:9px 13px;border:1px solid transparent;border-radius:7px;white-space:nowrap;flex-shrink:0;background:transparent;color:#425e70;box-shadow:none;font-weight:600!important}
+ body:has(.erp-workspace) :is(.filter-tabs button.active,.sample-tabs button.primary) {background:#fff;color:#076e68;border-color:#c2d8d7;box-shadow:0 2px 5px #18394a09;font-weight:700!important}
+ body .erp-workspace .samples>header {gap:20px;flex-wrap:wrap;margin-bottom:20px}
+ body .erp-workspace .samples>header>div:first-child {flex:1;min-width:240px}
+ body .erp-workspace .samples>header p:last-child {font-size:13px!important;margin-top:5px;color:var(--muted)}
+ body .erp-workspace .sample-tabs {margin:22px 0}
+ body .erp-workspace .samples+.panel {margin-top:24px}
+ body .erp-workspace .samples .filters {display:grid;background:#f7f9fb;border:1px solid var(--border);border-radius:10px;padding:18px;gap:14px;grid-template-columns:repeat(4,minmax(140px,1fr))}
+ body .erp-workspace .samples .filters label {min-width:0}
+ body .erp-workspace .samples .filters :is(input,select) {width:100%;min-width:0}
+ body:has(.erp-workspace) .sample-tabs button.primary:hover:not(:disabled) {background:#fff;color:#076e68;border-color:#c2d8d7;box-shadow:0 2px 5px #18394a09}
+ body .erp-workspace .chart-note {font-size:13px!important;margin:18px 0;color:var(--muted)}
+ body .erp-workspace .legend {gap:8px;flex-wrap:wrap;margin:16px 0}
+ body .erp-workspace .legend span {font-size:11px;padding:5px 9px;border-radius:5px;font-weight:700}
+ body .erp-workspace .chart {border:1px solid var(--border);border-radius:10px}
+ body .erp-workspace .chart th {position:sticky;top:0;z-index:2}
+ body .erp-workspace .chart .fixed {z-index:3}
+ body .erp-workspace .chart th.fixed {z-index:4}
+ body .erp-workspace .chart td {font-size:13px!important;padding:13px 16px}
+ body .erp-workspace .chart td small {font-size:12px!important}
+ body .erp-workspace .sop {max-width:1000px;margin:24px auto;background:#f8fafb;border:1px solid var(--border);border-radius:10px;padding:26px}
+ body .erp-workspace .sop ol {padding-left:24px}
+ body .erp-workspace .sop li {padding-left:8px;margin:18px 0;font-size:15px!important}
+ body .erp-workspace .sop li::marker {font-weight:700;color:var(--primary)}
+
+ /* Keep the navy title band visible in long forms. */
+ body:has(.erp-workspace) :is(.sample-dialog,.company-modal,.material-modal,.form-dialog,.order-drawer) {background:#f8fafb;color:var(--text);border-radius:14px;box-shadow:0 24px 80px #10253633;border-color:#d6e1e8}
+ body:has(.erp-workspace) :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) {background:#142b40!important;color:#fff!important;border-bottom:1px solid #34566c!important;box-shadow:0 3px 12px #122a3b12;padding:18px 24px;align-items:center}
+ body:has(.erp-workspace) :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) :is(h2,h3,p,strong,small,span) {color:#fff!important}
+ body:has(.erp-workspace) :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) h2 {font-size:18px!important;margin:0;line-height:1.4}
+ body:has(.erp-workspace) :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) button {background:#27465e!important;border-color:#567286!important;color:#fff!important;box-shadow:none}
+ body:has(.erp-workspace) :is(.sample-dialog>header,.dialog-header,.company-modal>header,.material-modal>header,.material-modal>form>header,.drawer-header) button:hover {background:#365972!important}
+ body:has(.erp-workspace) :is(.material-modal-body,.drawer-body) {background:#f8fafb}
+ body:has(.erp-workspace) .company-modal>header {top:-28px;margin:-28px -28px 24px;border-radius:14px 14px 0 0}
+ body:has(.erp-workspace) .company-modal {width:min(760px,calc(100vw - 48px))}
+ body:has(.erp-workspace) .form-dialog {width:min(760px,calc(100vw - 48px));max-width:760px}
+ body:has(.erp-workspace) .dialog-description {padding-top:16px;font-size:14px!important}
+ body:has(.erp-workspace) label>span:not(.required) {color:#22394b;font-weight:700}
+ body .erp-workspace .pipeline-column {min-width:0}
+ body .erp-workspace .pipeline-column>span:last-child {font-weight:600;letter-spacing:-.15px}
+ body:has(.erp-workspace) :is(.form-grid,.company-form-grid,.details-grid) {gap:20px 24px;align-items:start}
+ body:has(.erp-workspace) :is(.form-grid,.company-form-grid,.grid)>label {min-width:0;align-content:start}
+ body:has(.erp-workspace) :is(.material-dialog,.company-modal) :is(label,legend,input,select,textarea,p,td,li) {font-size:14px!important}
+ body:has(.erp-workspace) :is(.sample-dialog,.material-dialog,.company-modal) h3 {margin:24px 0 14px}
+ body:has(.erp-workspace) :is(.dialog-footer,.drawer-footer,.material-dialog footer) {background:#fff;border-top:1px solid var(--border);padding:18px 24px;gap:12px}
+ body:has(.erp-workspace) :is(.sample-overlay,.drawer-backdrop,.company-modal-backdrop) {background:#0c203580;backdrop-filter:blur(3px)}
+ body:has(.erp-workspace) :is(.form-dialog,.company-modal,.material-modal)::backdrop {background:#0c203580;backdrop-filter:blur(3px)}
+ body:has(.erp-workspace) .order-drawer {border-radius:14px 0 0 14px}
+ body:has(.erp-workspace) :is(button,a,input,select,textarea,summary):focus-visible {outline:3px solid #07827a;outline-offset:3px}
+ body .erp-workspace :is(.sidebar,.company-sidebar,.dev-sidebar) :is(button,a):focus-visible {outline-color:#9ce6d5}
+ body .erp-workspace :is(.company-actionbar,.drawer-footer) {box-shadow:0 -4px 16px #17394a06}
+
+ @media(min-width:1600px) {body:has(.erp-workspace){--workspace-gutter:40px}body .erp-workspace .metric{padding:24px}body .erp-workspace .metric>strong{font-size:38px}}
+ @media(max-width:1200px) {body:has(.erp-workspace){--sidebar-width:224px;--workspace-gutter:24px}body .erp-workspace .brand{padding:24px 16px}body .erp-workspace .brand strong{font-size:16px}body .erp-workspace .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body .erp-workspace .overview-columns{grid-template-columns:1fr}body .erp-workspace .attention-list{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}body .erp-workspace .samples .filters{grid-template-columns:repeat(3,minmax(140px,1fr))}body .erp-workspace .table-toolbar{flex-direction:row}body .erp-workspace .pipeline-track{max-width:55px}body .erp-workspace .pipeline-column>span:last-child{font-size:12px}}
+ @media(min-width:768px) and (max-width:1024px) {body:has(.erp-workspace){--workspace-gutter:20px}body .erp-workspace :is(.topbar,.company-topbar,.dev-topbar){gap:10px;height:66px;min-height:66px}body .erp-workspace :is(.workspace-main,.company-content,.dev-content){padding-top:24px}body .erp-workspace :is(.page-heading,.company-page-heading){gap:16px;align-items:flex-start}body .erp-workspace :is(.company-editor){grid-template-columns:1fr}body .erp-workspace .section-nav{position:static;flex-direction:row;overflow:auto;max-width:100%}body .erp-workspace .section-nav button{flex-shrink:0;white-space:nowrap}body .erp-workspace .company-register-toolbar{align-items:stretch}body .erp-workspace .company-register-toolbar .search-box{width:100%}body .erp-workspace .samples .filters{grid-template-columns:repeat(2,minmax(140px,1fr))}body .erp-workspace .samples{padding:20px}body .erp-workspace .samples .actions{gap:8px}body .erp-workspace .breadcrumb>span:first-of-type{display:none}body .erp-workspace .breadcrumb .slash{display:none}body .erp-workspace .line-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr))}body .erp-workspace .company-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}body .erp-workspace .company-metrics>div{border-bottom:1px solid var(--border)}body .erp-workspace .company-metrics>div:nth-child(2){border-right:0}}
+ @media(prefers-reduced-motion:reduce) {body:has(.erp-workspace) *,body:has(.erp-workspace) *::before,body:has(.erp-workspace) *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+}
+
+/* The same type scale and control geometry on every role's sign-in screen. */
+@media screen and (min-width:768px) {
+ body .login-layout {min-height:100dvh;grid-template-columns:minmax(320px,1.05fr) minmax(390px,1fr);background:#f3f6f9}
+ body .login-brand {background:#142b40;padding:48px 56px}
+ body .login-brand h1 {font-size:clamp(34px,3.5vw,54px);line-height:1.2;letter-spacing:-1.8px;color:#f5f9fc}
+ body .login-brand h1 span {color:#92d7c6}
+ body .login-brand .eyebrow {font-size:12px!important;color:#bbdbdc;letter-spacing:1.8px}
+ body .login-brand>div>p:last-child {color:#c1d1dc!important;font-size:15px!important;font-weight:500!important;line-height:1.7}
+ body .login-brand>small {color:#b1c8d8!important;font-size:11px!important;letter-spacing:1.3px}
+ body .login-brand-name img {width:48px;height:48px;object-fit:contain;border-radius:10px}
+ body .login-panel {background:#f8fafb;padding:44px}
+ body .login-form-wrap {max-width:400px;width:100%}
+ body .login-form-wrap :is(h1,h2) {font-family:Manrope,sans-serif;color:#1b3042;font-size:28px!important;font-weight:800!important;letter-spacing:-.7px;line-height:1.3}
+ body .login-form-wrap>p {font-size:14px!important;font-weight:500!important;line-height:1.7;color:#526575}
+ body .login-form-wrap form {margin-top:28px}
+ body .login-form-wrap label {font-size:14px!important;font-weight:700!important;color:#233b4e!important;margin-bottom:22px}
+ body .login-form-wrap input {font-size:15px!important;font-weight:600!important;min-height:48px;border-radius:8px!important;border-color:#b5c7d3!important;background:#edf3f7!important;padding:12px 14px;color:#172f41!important}
+ body .login-form-wrap input:focus-visible {outline:2px solid #087e78!important;outline-offset:3px;background:#fff!important}
+ body .login-form-wrap .password-control input {padding-right:52px}
+ body .login-form-wrap .password-control .password-toggle {color:#426074}
+ body .login-form-wrap .button {min-height:48px;border-radius:8px;font-size:14px!important;line-height:1.5;font-weight:700!important;padding:12px 16px}
+ body .login-form-wrap .primary {background:#087e78;border-color:#087e78;color:white}
+ body .login-form-wrap .primary:hover:not(:disabled) {background:#06635e}
+ body .login-form-wrap .login-help {font-size:13px!important;color:#526575;font-weight:500!important;line-height:1.6}
+ body .login-form-wrap .role-shortcuts {gap:8px;flex-wrap:wrap}
+ body .login-form-wrap .role-shortcuts button {background:#fff;border-color:#c7d5df;color:#294557;font-size:12px!important;padding:10px 12px;min-height:40px;border-radius:7px}
+ @media(max-width:1024px) {body .login-brand{padding:32px}body .login-panel{padding:32px}body .login-layout{grid-template-columns:minmax(280px,.9fr) minmax(360px,1.1fr)}body .login-brand h1{font-size:36px;letter-spacing:-1.2px}}
+}

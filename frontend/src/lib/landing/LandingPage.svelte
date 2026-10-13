@@ -4,12 +4,15 @@
  import {ArrowUpRight,ArrowRight,ArrowDown,Pause,Play,Menu,X,Layers,Check,Scissors,Package,Shirt,Workflow,LockKeyhole} from '@lucide/svelte';
  import '@fontsource/manrope/400.css';import '@fontsource/manrope/500.css';import '@fontsource/manrope/600.css';import '@fontsource/manrope/700.css';import '@fontsource/manrope/800.css';
  import GarmentScene from './GarmentScene.svelte';
+ import DustField from './DustField.svelte';
  import BlazerStory from './BlazerStory.svelte';
  import WorkflowStory from './WorkflowStory.svelte';
  import AIAnnouncement from './AIAnnouncement.svelte';
+ import {splitReveal,magnetic,tilt,spotlight,parallax,countUp,threadDraw,scrollMeter} from './pageMotion';
  import './landing.css';
  import './story.css';
  import './motion.css';
+ import './pageMotion.css';
  let root:HTMLElement,paused=$state(false),menu=$state(false);
  const stages=[
   {name:'Company & sourcing',short:'Source',owner:'FINANCE · SOURCING',heading:'Start with the right foundation.',text:'Register companies, buyers and suppliers. Build a fabric library with ETF / ESF references, specifications and swatch photographs.',items:['Company review & approval','Supplier and material masters','Fabric references & sample photos'],next:'A shared, approved foundation for the teams that follow.',icon:Layers},
@@ -29,6 +32,8 @@
   {id:'sewing',name:'Production',text:'From cut panels to finished garments',roles:['Cutting','Sewing','Finishing'],links:['cutting','sewing','finishing']},
   {id:'quality',name:'Quality & dispatch',text:'Final checks and warehouse handover',roles:['Quality','Warehouse'],links:['quality','warehouse']}
  ];
+ const metrics=[{value:8,label:'CONNECTED STAGES'},{value:6,label:'DEPARTMENT WORKSPACES'},{value:5,label:'GARMENT LAYERS EXPLORED'},{value:3,label:'PRODUCT LINES COVERED'}];
+ const ticker=['SUITS','TROUSERS','SHIRTS','FABRIC LIBRARY','SAMPLE APPROVALS','LINE PLANNING','QUALITY CHECKS','PACKING & DISPATCH'];
  const orbital=[{label:'MERCHANDISING',sub:'Buyer requirements',x:60,y:7},{label:'PLANNING',sub:'Capacity & milestones',x:86,y:27},{label:'PRODUCTION',sub:'Lines & progress',x:88,y:69},{label:'QUALITY',sub:'Checks & finishing',x:52,y:90},{label:'SOURCING',sub:'Fabric & suppliers',x:13,y:77},{label:'SAMPLING',sub:'Indents & approval',x:9,y:28}];
  onMount(()=>{
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');paused=reduce.matches;
@@ -55,26 +60,29 @@
   <button class="es-menu" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} onclick={()=>menu=!menu}>{#if menu}<X size={22}/>{:else}<Menu size={22}/>{/if}</button>
  </header>
  <main id="main">
-  <section class="es-hero" aria-labelledby="hero-title">
-   <div class="es-threads" aria-hidden="true"><svg viewBox="0 0 1600 800" preserveAspectRatio="none"><path d="M-100 155C400 30 540 440 1010 180S1490 160 1700 90M-100 240C460 185 450 350 940 270S1400 -30 1700 195M-100 630C260 720 450 590 920 620S1360 300 1700 580M-100 740C450 500 680 880 1110 710S1430 530 1700 690"/></svg></div>
+  <section class="es-hero" aria-labelledby="hero-title" use:spotlight={{paused:()=>paused}}>
+   <div class="es-threads" aria-hidden="true" use:threadDraw={{paused:()=>paused}}><svg viewBox="0 0 1600 800" preserveAspectRatio="none"><path data-draw d="M-100 155C400 30 540 440 1010 180S1490 160 1700 90"/><path data-draw d="M-100 240C460 185 450 350 940 270S1400 -30 1700 195"/><path data-draw d="M-100 630C260 720 450 590 920 620S1360 300 1700 580"/><path data-draw d="M-100 740C450 500 680 880 1110 710S1430 530 1700 690"/><path class="es-thread-pulse" d="M-100 155C400 30 540 440 1010 180S1490 160 1700 90"/><path class="es-thread-pulse" d="M-100 240C460 185 450 350 940 270S1400 -30 1700 195"/><path class="es-thread-pulse" d="M-100 740C450 500 680 880 1110 710S1430 530 1700 690"/></svg></div>
+   <DustField {paused}/>
    <div class="es-hero-copy">
     <div class="es-kicker hero-reveal"><span class="es-dot"></span> PRECISION IN EVERY PROCESS</div>
-    <h1 id="hero-title" class="hero-reveal">Every thread.<br/><span>One connected</span><br/>workflow.</h1>
+    <h1 id="hero-title" use:splitReveal={{paused:()=>paused}}>Every thread.<br/><span>One connected</span><br/>workflow.</h1>
     <p class="es-lead hero-reveal">From the first fabric swatch to the final dispatch. Bring people, production and progress together with Euro Suits ERP.</p>
-    <div class="es-actions hero-reveal"><a class="es-btn es-primary" href="/signin">Enter your workspace <ArrowUpRight size={18}/></a><a class="es-btn es-secondary" href="#blazer">Explore the blazer <ArrowDown size={17}/></a></div>
+    <div class="es-actions hero-reveal"><a class="es-btn es-primary" href="/signin" use:magnetic={{paused:()=>paused}}>Enter your workspace <ArrowUpRight size={18}/></a><a class="es-btn es-secondary" href="#blazer" use:magnetic={{paused:()=>paused}}>Explore the blazer <ArrowDown size={17}/></a></div>
     <div class="es-micro hero-reveal">DESIGNED FOR GARMENTS. BUILT AROUND PEOPLE.</div>
    </div>
-   <div class="es-sculpture">
+   <div class="es-sculpture" use:parallax={{paused:()=>paused,speed:.07}}>
     <GarmentScene {paused}/>
-    {#each orbital as o,i}<div class="es-orb-label" style={`--x:${o.x}%;--y:${o.y}%`}><span class="es-orb-dot"></span><div><span class="es-orb-num">0{i+1}</span><strong>{o.label}</strong><span>{o.sub}</span></div></div>{/each}
+    {#each orbital as o,i}<div class="es-orb-label" style={`--x:${o.x}%;--y:${o.y}%;--i:${i}`}><span class="es-orb-dot"></span><div><span class="es-orb-num">0{i+1}</span><strong>{o.label}</strong><span>{o.sub}</span></div></div>{/each}
     <div class="es-model-caption">FIG. 01 / THE CONNECTED GARMENT</div>
    </div>
    <div class="es-hero-foot"><span>SUITS · TROUSERS · SHIRTS</span><a href="#about">SCROLL TO DISCOVER <ArrowDown size={14}/></a><button class="es-motion" onclick={()=>paused=!paused} aria-pressed={paused}>{#if paused}<Play size={13}/> Enable motion{:else}<Pause size={13}/> Pause motion{/if}</button></div>
   </section>
+  <div class="es-metrics" data-reveal>{#each metrics as m}<div><strong use:countUp={{paused:()=>paused,to:m.value}} data-pad="2">00</strong><span>{m.label}</span></div>{/each}</div>
+  <div class="es-ticker" aria-hidden="true"><div class="es-ticker-track">{#each [0,1] as copy}<span data-copy={copy}>{#each ticker as item}<em>{item}</em><i>&#9670;</i>{/each}</span>{/each}</div></div>
   <BlazerStory {paused}/>
   <section id="about" class="es-about es-section" data-reveal>
    <div class="es-section-line"><span><i></i>02 / THE EURO SUITS WAY</span><span>CRAFT MEETS COORDINATION</span></div>
-   <div class="es-about-grid"><h2>Good garments.<br/><span>Great coordination.</span></h2><div><p class="es-intro">A garment passes through many hands.<br/>Its information should move just as smoothly.</p><p>Euro Suits brings sourcing, merchandising, development, production and dispatch into a shared manufacturing workspace. Every department has its part. Every handover has a place.</p><a class="es-text-link" href="#workspaces">Meet the workspaces <ArrowUpRight size={18}/></a></div></div>
+   <div class="es-about-grid"><h2 use:splitReveal={{paused:()=>paused}}>Good garments.<br/><span>Great coordination.</span></h2><div><p class="es-intro">A garment passes through many hands.<br/>Its information should move just as smoothly.</p><p>Euro Suits brings sourcing, merchandising, development, production and dispatch into a shared manufacturing workspace. Every department has its part. Every handover has a place.</p><a class="es-text-link" href="#workspaces">Meet the workspaces <ArrowUpRight size={18}/></a></div></div>
    <div class="es-principles"><article><span>01 — CLARITY</span><h3>Know what comes next.</h3><p>Follow requirements, approvals and the next department in the workflow.</p></article><article><span>02 — ACCOUNTABILITY</span><h3>Give each team its space.</h3><p>Work with the companies, orders and sewing lines assigned to your role.</p></article><article><span>03 — CONTINUITY</span><h3>Keep the details together.</h3><p>Connect fabric references, sample documents and production records.</p></article></div>
   </section>
   <WorkflowStory {stages} {paused}/>
@@ -83,8 +91,8 @@
   </section>
   <section id="workspaces" class="es-section es-workspaces">
    <div class="es-section-line"><span><i></i>04 / A PLACE FOR EVERY TEAM</span><span>YOUR ROLE. YOUR WORKSPACE.</span></div>
-   <div class="es-flow-heading" data-reveal><h2>Different responsibilities.<br/><span>The same direction.</span></h2><p>Choose your department to sign in.<br/>Your account determines your access.</p></div>
-   <div class="es-department-grid">{#each departments as d,i}<article data-reveal><div class="es-dept-index">0{i+1}<ArrowUpRight size={20}/></div><h3>{d.name}</h3><p>{d.text}</p><div class="es-portal-links">{#each d.roles as role,j}<a href={`/${d.links[j]}`}>{role}<ArrowUpRight size={13}/></a>{/each}</div></article>{/each}</div>
+   <div class="es-flow-heading" data-reveal><h2 use:splitReveal={{paused:()=>paused}}>Different responsibilities.<br/><span>The same direction.</span></h2><p>Choose your department to sign in.<br/>Your account determines your access.</p></div>
+   <div class="es-department-grid">{#each departments as d,i}<article data-reveal use:tilt={{paused:()=>paused}}><div class="es-dept-index">0{i+1}<ArrowUpRight size={20}/></div><h3>{d.name}</h3><p>{d.text}</p><div class="es-portal-links">{#each d.roles as role,j}<a href={`/${d.links[j]}`}>{role}<ArrowUpRight size={13}/></a>{/each}</div></article>{/each}</div>
    <div class="es-access-note"><LockKeyhole size={17}/><span>Accounts are created by your administrator. Selecting a workspace does not change your permissions.</span><a href="/signin">General sign in <ArrowRight size={15}/></a></div>
   </section>
   <section class="es-section es-faq" data-reveal>

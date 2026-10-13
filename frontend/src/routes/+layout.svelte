@@ -3,7 +3,6 @@
  import {reportClientIssue} from '$lib/diagnostics';
  import {installActionLocks} from '$lib/actionLock';
  import '../interactions.css';
- import '../readability.css';
  let {children}=$props();
  onMount(()=>{
   const removeActionLocks=installActionLocks();

@@ -8,8 +8,9 @@
  import {workspaceRedirect} from './workspaceAccess';
  import SignInForm from "./SignInForm.svelte";
  import {enter, workspaceMotion} from "./motion";
- import "../interactions.css";
- import "../dashboard.css";
+ import '../app.css';
+ import '../company.css';
+ import '../dashboard.css';
  import {onMount,tick} from 'svelte';
  import {goto} from '$app/navigation';
  import CustomCompanyFields from './CustomCompanyFields.svelte';
@@ -27,7 +28,6 @@
  import {Building2,ShieldCheck,FileText,Landmark,Plane,Clock,Plus,ArrowLeft,ArrowRight,Check,LogOut,Download,Upload,Search,Settings,Mail,LockKeyhole,RefreshCw,X,ClipboardCheck} from '@lucide/svelte';
  import {api,uploadTo,day} from '$lib/api';
  import type {Row} from '$lib/types';
- import '../app.css';import '../company.css';
  let user:Row|null=$state(null),data:Row=$state({companies:[],fields:[],ports:[],reminders:[],types:{}}),selected:Row|null=$state(null),profile:Row=$state({});
  let ready=$state(false),busy=$state(false),error=$state(''),notice=$state(''),username=$state(''),password=$state(''),section=$state('Overview'),search=$state(''),status=$state('All'),local=$state(false),dirty=$state(false);
  let modal=$state(''),form:Row=$state({}),reviewNote=$state(''),fileInput=$state<HTMLInputElement>(null!);let uploaded=$state(false);

@@ -10,7 +10,7 @@
  import SignInForm from './SignInForm.svelte';
  import SetupUsers from './SetupUsers.svelte';
  import {enter, workspaceMotion} from './motion';
- import '../app.css';import '../company.css';import '../interactions.css';import '../dashboard.css';
+ import '../app.css';import '../company.css';import '../dashboard.css';
  let user:Row|null=$state(null),data:Row|null=$state(null),ready=$state(false),busy=$state(false),error=$state(''),notice=$state('');
  let tab=$state('Overview'),search=$state(''),filter=$state('Open'),form:Row|null=$state(null),kind=$state('');
  const tabs=['Overview','Performance','Accounts','Access & new users','Issues','Email & reminders','WhatsApp'];
@@ -77,9 +77,28 @@
  {#if error}<p class="form-error" role="alert">{error}</p>{/if}<footer><button type="button" class="button secondary" disabled={busy} onclick={()=>form=null}>Cancel</button><button class="button primary" disabled={busy||(kind==='delete'&&form.confirmation_username!==form.username)}>{busy?'Saving…':kind==='delete'?'Delete user':'Save changes'}</button></footer></form></dialog>{/if}
 
 <style>
- .dev-shell{display:flex;min-height:100vh;background:#f5f6f8}.dev-sidebar{width:244px;background:#13242c;color:#e8eef1;padding:28px 18px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0}.dev-brand{display:flex;gap:12px;align-items:center;padding:0 10px 32px}.dev-brand img{width:40px;height:40px;object-fit:contain;border-radius:8px;background:#000}.dev-brand small,.dev-owner small{display:block;font-size:10px;letter-spacing:1.5px;margin-top:6px;color:#aab8bf}.dev-caption{font-size:10px;letter-spacing:1.5px;padding:0 12px;color:#8fa2ad}.dev-sidebar nav{display:grid;gap:6px}.dev-sidebar button{display:flex;align-items:center;gap:10px;border:0;background:transparent;color:#bbcad1;padding:13px 12px;text-align:left;border-radius:8px;font:inherit;font-size:13px;cursor:pointer}.dev-sidebar button.active{background:#29414a;color:white}.dev-sidebar button:hover{background:#233740}.dev-owner{margin-top:auto;padding:28px 12px 0}.dev-owner button{padding-left:0;margin-top:15px}.dev-main{min-width:0;flex:1}.dev-topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid #e2e6e9;background:#fff;color:#667680;font-size:13px}.dev-content{padding:28px 32px;max-width:1600px;margin:auto}.dev-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}.dev-stats article{padding:22px}.dev-stats small{display:block;color:#687782}.dev-stats strong{display:block;font-size:32px;margin-top:10px;letter-spacing:-1px}.dev-section{padding:24px;margin-bottom:20px}.dev-section h2{font-size:17px;margin:0 0 18px}.dev-health{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.dev-health div{display:grid;gap:7px;font-size:13px}.dev-health span{color:#687782}.dev-health strong{color:#24735a}.dev-health strong.dev-warning{color:#966119}.dev-history{display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid #e9ecef;font-size:12px}.dev-history strong{flex:1}.dev-history span,.dev-history small{color:#667680}.dev-content code{font-size:11px;overflow-wrap:anywhere}.dev-content td{vertical-align:top}.dev-content .muted{line-height:1.65}.dev-content .company-page-heading h1{font-size:28px}
- @media(max-width:1050px){.dev-sidebar{width:210px}.dev-content{padding:24px}.dev-stats{grid-template-columns:repeat(2,1fr)}.dev-history{flex-wrap:wrap}.dev-history strong{flex-basis:100%}}
- @media(max-width:700px){.dev-shell{display:block}.dev-sidebar{width:auto;height:auto;position:static;padding:16px}.dev-brand{padding:0 0 12px}.dev-caption,.dev-owner small{display:none}.dev-sidebar nav{display:flex;overflow-x:auto}.dev-sidebar nav button{white-space:nowrap}.dev-owner{padding:12px 0 0;display:flex;justify-content:space-between;align-items:center}.dev-owner button{margin:0;padding:8px}.dev-topbar{padding:12px 16px}.dev-content{padding:20px 16px}.dev-health{grid-template-columns:1fr}.dev-stats{gap:10px}.dev-stats article{padding:16px}.dev-content input{min-width:0}}
+ /* Developer-only panels and lists. The shell, sidebar, top bar and responsive
+    behaviour come from the shared theme (app.css + dashboard.css). */
+ .dev-shell{display:flex;min-height:100dvh}
+ .dev-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:24px}
+ .dev-stats article{padding:22px}
+ .dev-stats small{display:block}
+ .dev-stats strong{display:block;font-size:32px;margin-top:10px;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+ .dev-section{margin-bottom:20px}
+ .dev-section h2{margin:0 0 18px}
+ .dev-health{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+ .dev-health div{display:grid;gap:7px;font-size:13px}
+ .dev-health span{color:#687782}
+ .dev-health strong{color:#24735a}
+ .dev-health strong.dev-warning{color:#966119}
+ .dev-history{display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid #e9ecef;font-size:12px}
+ .dev-history strong{flex:1}
+ .dev-history span,.dev-history small{color:#667680}
+ .dev-content code{font-size:11px;overflow-wrap:anywhere}
+ .dev-content td{vertical-align:top}
+ .dev-content .muted{line-height:1.65}
+ @media(max-width:1050px){.dev-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dev-history{flex-wrap:wrap}.dev-history strong{flex-basis:100%}}
+ @media(max-width:760px){.dev-health{grid-template-columns:1fr}.dev-stats{gap:10px}.dev-stats article{padding:16px}.dev-content input{min-width:0}}
 </style>
 
 {#if ready && user && data}

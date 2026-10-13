@@ -197,10 +197,45 @@
  body .erp-workspace :is(.sidebar,.company-sidebar,.dev-sidebar) :is(button,a):focus-visible {outline-color:#9ce6d5}
  body .erp-workspace :is(.company-actionbar,.drawer-footer) {box-shadow:0 -4px 16px #17394a06}
 
+ /* Dialog title bands stay pinned while long form bodies scroll. */
+ body:has(.erp-workspace) :is(.dialog-header,.company-modal>header,.material-modal header,.material-modal>form>header,.sample-dialog>header,.drawer-header) {position:sticky;top:0;z-index:6}
+ body:has(.erp-workspace) :is(.company-modal>header,.material-modal header) .eyebrow {display:none}
+
+ /* Compact, high-contrast ETF/ESF material dialogs. */
+ body .erp-workspace .material-dialog .material-modal-body {background:#eaf2ee}
+ body .erp-workspace .material-dialog :is(label,legend,input,select,textarea,p,td,li) {font-size:14px!important}
+ body .erp-workspace .material-dialog :is(small,.muted,.eyebrow,.material-helper) {font-size:12px!important}
+ body .erp-workspace .material-dialog :is(button,.button) {font-size:13px!important}
+ body .erp-workspace .material-dialog h2 {font-size:19px!important}
+ body .erp-workspace .material-dialog h3 {font-size:16px!important}
+ body .erp-workspace .material-dialog :is(label,legend) {color:#152536!important}
+ body .erp-workspace .material-modal label {color:#263d50}
+ body .erp-workspace .material-modal .company-form-grid {row-gap:24px}
+ body .erp-workspace .material-dialog footer .button {overflow-wrap:anywhere;min-width:0}
+
  @media(min-width:1600px) {body:has(.erp-workspace){--workspace-gutter:40px}body .erp-workspace .metric{padding:24px}body .erp-workspace .metric>strong{font-size:38px}}
  @media(max-width:1200px) {body:has(.erp-workspace){--sidebar-width:224px;--workspace-gutter:24px}body .erp-workspace .brand{padding:24px 16px}body .erp-workspace .brand strong{font-size:16px}body .erp-workspace .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body .erp-workspace .overview-columns{grid-template-columns:1fr}body .erp-workspace .attention-list{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}body .erp-workspace .samples .filters{grid-template-columns:repeat(3,minmax(140px,1fr))}body .erp-workspace .table-toolbar{flex-direction:row}body .erp-workspace .pipeline-track{max-width:55px}body .erp-workspace .pipeline-column>span:last-child{font-size:12px}}
  @media(min-width:768px) and (max-width:1024px) {body:has(.erp-workspace){--workspace-gutter:20px}body .erp-workspace :is(.topbar,.company-topbar,.dev-topbar){gap:10px;height:66px;min-height:66px}body .erp-workspace :is(.workspace-main,.company-content,.dev-content){padding-top:24px}body .erp-workspace :is(.page-heading,.company-page-heading){gap:16px;align-items:flex-start}body .erp-workspace :is(.company-editor){grid-template-columns:1fr}body .erp-workspace .section-nav{position:static;flex-direction:row;overflow:auto;max-width:100%}body .erp-workspace .section-nav button{flex-shrink:0;white-space:nowrap}body .erp-workspace .company-register-toolbar{align-items:stretch}body .erp-workspace .company-register-toolbar .search-box{width:100%}body .erp-workspace .samples .filters{grid-template-columns:repeat(2,minmax(140px,1fr))}body .erp-workspace .samples{padding:20px}body .erp-workspace .samples .actions{gap:8px}body .erp-workspace .breadcrumb>span:first-of-type{display:none}body .erp-workspace .breadcrumb .slash{display:none}body .erp-workspace .line-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr))}body .erp-workspace .company-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}body .erp-workspace .company-metrics>div{border-bottom:1px solid var(--border)}body .erp-workspace .company-metrics>div:nth-child(2){border-right:0}}
- @media(prefers-reduced-motion:reduce) {body:has(.erp-workspace) *,body:has(.erp-workspace) *::before,body:has(.erp-workspace) *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+ /* Phones: workspaces stack into a single column. The operations sidebar stays an
+    off-canvas drawer; company/developer navigation collapses into a horizontal bar. */
+ @media(max-width:760px) {
+  body:has(.erp-workspace) {--sidebar-width:0px;--workspace-gutter:16px}
+  body .erp-workspace .sidebar {width:250px}
+  body .erp-workspace :is(.company-sidebar,.dev-sidebar) {position:static;width:auto;height:auto;inset:auto;border-right:0;padding:14px 16px 10px}
+  body .erp-workspace :is(.brand,.dev-brand) {padding:0 0 10px}
+  body .erp-workspace :is(.brand,.dev-brand) img {width:34px;height:34px}
+  body .erp-workspace :is(.brand,.dev-brand) strong {font-size:15px}
+  body .erp-workspace .phase-pill, body .erp-workspace .company-sidebar-note, body .erp-workspace .dev-caption {display:none}
+  body .erp-workspace :is(.company-sidebar nav,.dev-sidebar nav) {display:flex;gap:5px;margin:10px 0 0;padding:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+  body .erp-workspace :is(.company-sidebar nav button,.dev-sidebar nav button) {width:auto;flex-shrink:0;white-space:nowrap;min-height:40px;margin:0;padding:9px 12px;font-size:13px!important}
+  body .erp-workspace :is(.company-sidebar footer,.dev-owner) {margin:10px 0 0;padding:10px 0 0;display:flex;align-items:center;gap:10px;background:none;border-top:1px solid #2a4258}
+  body .erp-workspace :is(.company-sidebar footer small,.dev-owner small) {display:none}
+  body .erp-workspace :is(.company-sidebar footer button,.dev-owner button) {margin:0 0 0 auto;padding:0}
+  body .erp-workspace :is(.company-main,.dev-main) {margin-left:0;width:100%}
+  body .erp-workspace :is(.company-topbar,.dev-topbar) {height:56px;min-height:56px;padding:0 16px;font-size:12px}
+  body .erp-workspace :is(.company-content,.dev-content) {padding:22px 16px 60px}
+  body .erp-workspace .workspace-skip {left:16px}
+ }
 }
 
 /* The same type scale and control geometry on every role's sign-in screen. */

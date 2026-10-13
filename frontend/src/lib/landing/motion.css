@@ -1,23 +1,161 @@
-/* Anime timelines own the line drawing; the static state is complete and readable. */
-.es-site .es-story-progress{height:3px;background:#c6ddda;overflow:hidden}
-.es-site .es-story-progress>span{display:block;height:100%;background:#087f7c;transform-origin:left center;will-change:transform}
-.es-site .es-construction-details{position:absolute;inset:0;z-index:2;pointer-events:none}
-.es-site .es-construction-details>svg{width:100%;height:100%;position:absolute;inset:0}
-.es-site .es-detail-frame{stroke:#7ca8a2;stroke-width:.7;opacity:.55}
-.es-site .es-detail-axis{stroke:#699e99;stroke-width:1;opacity:.5}
-.es-site .es-detail-guides{stroke:#468f88;stroke-width:1;opacity:.7}
-.es-site .es-detail-guides circle{fill:#087f7c;stroke:#f1faf6;stroke-width:2}
-.es-site .es-detail-label{position:absolute;font:8px monospace;letter-spacing:.1em;color:#28665f;line-height:1.3;background:#eaf3efdd;padding:4px 5px;border-radius:3px}
-.es-site .detail-a{left:5%;top:15%}.es-site .detail-b{right:5%;top:39%}.es-site .detail-c{left:5%;top:73%}
-.es-site .es-detail-edition{position:absolute;bottom:4%;right:5%;font:7px monospace;letter-spacing:.14em;color:#5c827d}
-.es-site .es-garment-diagram svg g.es-diagram-art{transition:opacity .35s;transform:translateY(0);transform-origin:280px 240px}
-.es-site .es-garment-diagram .sewing .diagram-seams{animation:none}
-.es-site .es-animated-thread{filter:drop-shadow(0 1px 1px #087f7c18)}
-.es-site .es-workflow-sticky{box-shadow:0 22px 60px #25485b12,0 2px 2px #ffffff inset}
-.es-site .es-layer-sticky{box-shadow:0 25px 75px #020e1c55,0 1px 0 #ffffff65 inset}
-.es-site .es-motion-dock{position:fixed;right:20px;bottom:20px;z-index:35;display:flex;align-items:center;gap:8px;min-height:40px;padding:10px 13px;border:1px solid #638785;border-radius:24px;background:#14273cf5;box-shadow:0 4px 16px #071f3433;color:#eaf7f3;font-size:11px!important;font-weight:600!important}
-.es-site .es-motion-dock:hover{background:#06635f}
-.es-site .es-motion-dock:focus-visible{outline:3px solid #74d3c2;outline-offset:4px}
-@media(max-width:900px){.es-site .es-detail-label{font-size:7px;letter-spacing:0;padding:3px}.es-site .es-detail-edition{font-size:6px}}
-@media(max-width:700px){.es-site .es-detail-label{font-size:6px;max-width:68px}.es-site .detail-a{left:4%;top:15%}.es-site .detail-b{right:4%;top:35%}.es-site .detail-c{left:4%;top:70%}.es-site .es-detail-edition{display:none}.es-site .es-motion-dock{right:12px;bottom:12px;min-height:44px;padding:11px 13px}.es-site .es-motion-dock span{display:none}}
-@media(prefers-reduced-motion:reduce){.es-site .es-story-progress>span{will-change:auto}}
+/* Anime timelines own the line drawing; the static state is complete and readable. */ .es-site .es-story-progress {
+  height:3px;
+  background:#c6ddda;
+  overflow:hidden
+}
+.es-site .es-story-progress>span {
+  display:block;
+  height:100%;
+  background:#087f7c;
+  transform-origin:left center;
+  will-change:transform
+}
+.es-site .es-construction-details {
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none
+}
+.es-site .es-construction-details>svg {
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0
+}
+.es-site .es-detail-frame {
+  stroke:#7ca8a2;
+  stroke-width:.7;
+  opacity:.55
+}
+.es-site .es-detail-axis {
+  stroke:#699e99;
+  stroke-width:1;
+  opacity:.5
+}
+.es-site .es-detail-guides {
+  stroke:#468f88;
+  stroke-width:1;
+  opacity:.7
+}
+.es-site .es-detail-guides circle {
+  fill:#087f7c;
+  stroke:#f1faf6;
+  stroke-width:2
+}
+.es-site .es-detail-label {
+  position:absolute;
+  font:8px monospace;
+  letter-spacing:.1em;
+  color:#28665f;
+  line-height:1.3;
+  background:#eaf3efdd;
+  padding:4px 5px;
+  border-radius:3px
+}
+.es-site .detail-a {
+  left:5%;
+  top:15%
+}
+.es-site .detail-b {
+  right:5%;
+  top:39%
+}
+.es-site .detail-c {
+  left:5%;
+  top:73%
+}
+.es-site .es-detail-edition {
+  position:absolute;
+  bottom:4%;
+  right:5%;
+  font:7px monospace;
+  letter-spacing:.14em;
+  color:#5c827d
+}
+.es-site .es-garment-diagram svg g.es-diagram-art {
+  transition:opacity .35s;
+  transform:translateY(0);
+  transform-origin:280px 240px
+}
+.es-site .es-garment-diagram .sewing .diagram-seams {
+  animation:none
+}
+.es-site .es-animated-thread {
+  filter:drop-shadow(0 1px 1px #087f7c18)
+}
+.es-site .es-workflow-sticky {
+  box-shadow:0 22px 60px #25485b12,0 2px 2px #ffffff inset
+}
+.es-site .es-layer-sticky {
+  box-shadow:0 25px 75px #020e1c55,0 1px 0 #ffffff65 inset
+}
+.es-site .es-motion-dock {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:35;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:40px;
+  padding:10px 13px;
+  border:1px solid #638785;
+  border-radius:24px;
+  background:#14273cf5;
+  box-shadow:0 4px 16px #071f3433;
+  color:#eaf7f3;
+  font-size:11px;
+  font-weight:600
+}
+.es-site .es-motion-dock:hover {
+  background:#06635f
+}
+.es-site .es-motion-dock:focus-visible {
+  outline:3px solid #74d3c2;
+  outline-offset:4px
+}
+@media(max-width:900px) {
+  .es-site .es-detail-label {
+    font-size:7px;
+    letter-spacing:0;
+    padding:3px
+  }
+  .es-site .es-detail-edition {
+    font-size:6px
+  }
+}
+@media(max-width:700px) {
+  .es-site .es-detail-label {
+    font-size:6px;
+    max-width:68px
+  }
+  .es-site .detail-a {
+    left:4%;
+    top:15%
+  }
+  .es-site .detail-b {
+    right:4%;
+    top:35%
+  }
+  .es-site .detail-c {
+    left:4%;
+    top:70%
+  }
+  .es-site .es-detail-edition {
+    display:none
+  }
+  .es-site .es-motion-dock {
+    right:12px;
+    bottom:12px;
+    min-height:44px;
+    padding:11px 13px
+  }
+  .es-site .es-motion-dock span {
+    display:none
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .es-site .es-story-progress>span {
+    will-change:auto
+  }
+}

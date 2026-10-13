@@ -64,10 +64,10 @@
 <style>
  .export-shell{min-height:100dvh;background:var(--bg,#f3f6fa)}
  .export-topbar{min-height:72px;padding:12px 32px;background:#fff;border-bottom:1px solid var(--border,#dce4ed);display:flex;align-items:center;justify-content:space-between;gap:20px}
- .back-link{display:inline-flex;align-items:center;gap:8px;color:#18334e;text-decoration:none;font-weight:650;min-height:40px}
+ .back-link{display:inline-flex;align-items:center;gap:8px;color:#18334e;text-decoration:none;font-weight:700;min-height:40px}
  .back-link:hover{text-decoration:underline;text-underline-offset:4px}
  .export-account{display:flex;align-items:center;gap:20px}
- .export-account>span{display:flex;flex-direction:column;gap:3px;font-size:.875rem}
+ .export-account>span{display:flex;flex-direction:column;gap:3px;font-size:13px}
  .export-account small{color:#526378}
  #export-content{max-width:1720px;margin:auto;padding:28px 32px 80px;outline:none}
  .access-message{padding:28px;max-width:760px;margin:40px auto}
